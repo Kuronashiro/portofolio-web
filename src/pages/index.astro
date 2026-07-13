@@ -1,0 +1,890 @@
+---
+import "../styles/global.css";
+
+const contact = {
+  email: "Hamrizqyt@gmail.com",
+  whatsappLabel: "wa.me/6281547588632",
+  whatsapp: "https://wa.me/6281547588632",
+  linkedinLabel: "linkedin.com/in/muhammadirhamrizq",
+  linkedin: "https://www.linkedin.com/in/muhammadirhamrizq",
+  instagram: "https://www.instagram.com/irhamrzq",
+  githubLabel: "github.com/Kuronashiro",
+  github: "https://github.com/Kuronashiro",
+  gitlabLabel: "gitlab.com/kuronashiro",
+  gitlab: "https://gitlab.com/kuronashiro",
+  cv: "/files/cv-muhammad-irham-rizq-2025.pdf"
+};
+
+const roles = [
+  "Backend Engineering",
+  "DevOps & Deployment",
+  "Payment Infrastructure",
+  "System Reliability"
+];
+
+const stats = [
+  ["10+", "technical projects"],
+  ["IDR 100M+", "online store turnover"],
+  ["1500+", "HIMTI participants led"],
+  ["100 / A+", "highest project grade"]
+];
+
+const githubFocus = [
+  {
+    label: "Backend",
+    items: ["NestJS", "Prisma", "JWT auth", "RBAC", "REST API"]
+  },
+  {
+    label: "DevOps",
+    items: ["Docker Compose", "Nginx", "GitHub Actions", "Linux", "HTTPS"]
+  },
+  {
+    label: "Data & AI",
+    items: ["PostgreSQL", "FastAPI", "scikit-learn", "TF-IDF", "Linear SVM"]
+  },
+  {
+    label: "Reliability",
+    items: ["Prometheus", "Grafana", "E2E tests", "audit trail", "security checks"]
+  }
+];
+
+const featuredCase = {
+  name: "SalesOps AI / Kuronashiro Hobby Website",
+  repo: "https://github.com/Kuronashiro/salesops-ai",
+  status: "Public GitHub repo - TypeScript primary language",
+  description:
+    "A local production-style sales operations dashboard for real marketplace transaction data. The system combines a Next.js dashboard, NestJS API, FastAPI AI inference service, PostgreSQL database, Docker Compose deployment, Nginx HTTPS reverse proxy, and Prometheus/Grafana monitoring.",
+  highlights: [
+    "CSV import/export, searchable transaction table, KPI dashboard, charts, and admin workflows.",
+    "JWT authentication, RBAC guard, protected routes, audit logs, rate limiting, Helmet headers, and restricted CORS.",
+    "AI category prediction with TF-IDF + Linear SVM, duplicate candidate detection, and IQR-based price anomaly detection.",
+    "Production-like local stack with Docker health checks, HTTPS entrypoint, PostgreSQL volumes, Grafana provisioning, and backup script.",
+    "Documented final report, deployment guide, E2E testing, security checklist, AI detection notes, and performance optimization."
+  ],
+  metrics: [
+    ["7", "container services"],
+    ["6", "Playwright E2E tests passed"],
+    ["8", "API unit tests passed"],
+    ["0", "API audit vulnerabilities in report"]
+  ],
+  repoFiles: [
+    "apps/web/dashboard",
+    "apps/api/api",
+    "apps/ai/category-model",
+    "infra/nginx",
+    "infra/monitoring",
+    "docs/final-report.md"
+  ]
+};
+
+const architectureSteps = [
+  {
+    name: "Next.js Dashboard",
+    type: "Frontend",
+    detail: "Admin views, KPI charts, transactions, AI prediction UI"
+  },
+  {
+    name: "NestJS API",
+    type: "Backend",
+    detail: "JWT auth, RBAC, analytics, audit logs, CSV import/export"
+  },
+  {
+    name: "PostgreSQL",
+    type: "Database",
+    detail: "Real transaction records, indexes, Prisma schema"
+  },
+  {
+    name: "FastAPI AI",
+    type: "AI Service",
+    detail: "TF-IDF + Linear SVM category prediction"
+  },
+  {
+    name: "Prometheus + Grafana",
+    type: "Monitoring",
+    detail: "Metrics, dashboards, service visibility"
+  },
+  {
+    name: "Nginx + Docker",
+    type: "Infrastructure",
+    detail: "HTTPS reverse proxy and local production-like stack"
+  }
+];
+
+const demoSnapshots = [
+  {
+    label: "Dashboard",
+    title: "Revenue and transactions",
+    detail: "KPI overview, trend chart, category mix, top products"
+  },
+  {
+    label: "API",
+    title: "Protected admin flows",
+    detail: "JWT auth, RBAC routes, audit logs, import/export"
+  },
+  {
+    label: "AI",
+    title: "Detection workspace",
+    detail: "Category prediction, duplicate candidates, price anomalies"
+  },
+  {
+    label: "Monitoring",
+    title: "Production-like visibility",
+    detail: "Prometheus metrics, Grafana panels, health checks"
+  }
+];
+
+const techStackGroups = [
+  {
+    title: "DevOps & Infrastructure",
+    items: ["Git", "GitHub", "GitHub Actions", "Docker", "Linux", "Google Cloud", "Vercel", "Nginx", "Postman"]
+  },
+  {
+    title: "Back End",
+    items: ["Node.js", "Express", "NestJS", "TypeScript", "JavaScript", "Python", "FastAPI", "PHP", "Laravel"]
+  },
+  {
+    title: "Database & Services",
+    items: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "Prisma", "Supabase", "Firebase"]
+  },
+  {
+    title: "Front End",
+    items: ["HTML5", "CSS3", "React", "Next.js", "Tailwind CSS", "Vite", "Astro"]
+  },
+  {
+    title: "Payment & Reliability",
+    items: ["Xendit", "Webhooks", "Escrow Flow", "Transaction Logs", "Monitoring", "Security"]
+  }
+];
+
+const experiences = [
+  {
+    org: "Google Developer Groups Bandung",
+    meta: "Lead total 1000 participants",
+    period: "February 2025 - Present",
+    title: "Core Team, Event Division",
+    bullets: [
+      "Core Team of GDG Bandung 2025",
+      "Event Division 2025",
+      "PIC of Event GDG Bandung Build With AI 2025"
+    ]
+  },
+  {
+    org: "Google Developer Groups on Campus BINUS University",
+    meta: "Lead total 500 participants",
+    period: "Oktober 2024 - Present",
+    title: "Core Team",
+    bullets: [
+      "Core Team of GDGoC Bina Nusantara University 2024-2025",
+      "Non Technical Division 2024-2025",
+      "Formalistic Staff 2024-2025",
+      "PIC Event BINUS Bandung Road to APAC Solution 2025",
+      "UI/UX Workshop staff by GDGoC 2025",
+      "Front-End Workshop staff by GDGoC 2025",
+      "Back-End Workshop staff by GDGoC 2025",
+      "Data Science Workshop staff by GDGoC 2025",
+      "Machine Learning Workshop staff by GDGoC 2025",
+      "Android Workshop staff by GDGoC 2025"
+    ]
+  },
+  {
+    org: "HIMTI BINUS University",
+    meta: "Lead total 1500 participants",
+    period: "September 2023 - Present",
+    title: "Web Developer Staff and Event Coordinator",
+    bullets: [
+      "Active activist since 1st semester",
+      "Web Developer Staff HIMTI 2025-2026",
+      "Event Coordinator of TECHFEST Competition 2025",
+      "Event Coordinator of TECHNO 2025",
+      "Public Relation Staff HIMTI 2024-2025",
+      "Event Coordinator of HIMTI Summer Class 2024-2025",
+      "Part of HIMTI BINUS X HMIF Maranatha 2024-2025",
+      "Workshop Technician IoT and LiveCode at BINUS INCUBATOR WORKSHOP",
+      "Event Coordinator and Timekeeper of HIMTI Computer Class 2024-2025",
+      "Sponsorship Division of TECHNO 2024",
+      "Event Coordinator of Company Visit HIMTI 2024"
+    ]
+  },
+  {
+    org: "BINUSIAN GAMING BINUS University",
+    meta: "Lead total 500 participants",
+    period: "Oktober 2023 - Present",
+    title: "Vice Chairman, Community Organizer",
+    bullets: [
+      "Vice Chairman of BINUSIAN GAMING Bandung",
+      "Vice Chairman of Bina Nusantara Esport Championship 2025",
+      "Public Relation Staff BINUSIAN GAMING 2024-2025",
+      "Event Organizer of Bina Nusantara Esport Championship 2024",
+      "Event Coordinator of EXPO Student Activity Units 2024-2025",
+      "Event Coordinator of BINUSIAN GAMING Welcoming Party 2024-2025"
+    ]
+  },
+  {
+    org: "Kuronashiro Gaming Services",
+    meta: "Online freelance",
+    period: "2025 - Present",
+    title: "CEO and Service Provider",
+    intro:
+      "Providing consulting services around games and helping solve account or progression problems as an online game jockey.",
+    bullets: [
+      "CEO of Kuronashiro Gaming Services Provider",
+      "Worker of Kuronashiro Gaming Services Provider",
+      "Available only for Genshin Impact",
+      "Reached turnover of almost IDR 10,000,000"
+    ]
+  },
+  {
+    org: "Online Store Owner and Reseller",
+    meta: "Personal online business",
+    period: "2018 - Present",
+    title: "Kuronashiro Hobby Marketplace Operator",
+    intro:
+      "Selling electronics, books, clothing, video games, toys, household equipment, and used goods while also accepting sales assistance services.",
+    bullets: [
+      "Kuronashiro Hobby on Tokopedia",
+      "Kuronashiro Hobby on Facebook Marketplace",
+      "Kuronashiro Hobby on OLX",
+      "Kuronashiro Hobby on Carousell",
+      "Kuronashiro Hobby on Shopee",
+      "Achieved turnover of more than IDR 100,000,000"
+    ]
+  }
+];
+
+const projects = [
+  {
+    name: "Kuronashiro Hobby Website",
+    course: "Internship Project",
+    semester: "6th Semester Project",
+    grade: "Status: On Progress",
+    featured: true,
+    repo: "https://github.com/Kuronashiro/salesops-ai",
+    categories: ["backend", "devops", "ai", "web"],
+    preview: "salesops",
+    body:
+      "Production-scale integrated sales operations system using Next.js, NestJS, and PostgreSQL. Includes a Python AI module with FastAPI for TF-IDF/SVM category classification, price anomaly detection, duplicate detection, Docker containerization, GitHub Actions CI/CD, and monitoring with Prometheus, Grafana, and Nginx reverse proxy."
+  },
+  {
+    name: "Lost & Found Web",
+    course: "Web Developer Course",
+    semester: "5th Semester Project",
+    grade: "Grade 90 / A",
+    categories: ["web", "backend"],
+    preview: "lostweb",
+    body:
+      "Campus lost and found website using Vue.js, Laravel, MySQL, Cloudinary, Vercel, and REST API. Users can browse reported lost items and submit item details with stored images."
+  },
+  {
+    name: "Air Quality Monitor",
+    course: "IoT Develop & Architect Course",
+    semester: "5th Semester Project",
+    grade: "Grade 80 / B+",
+    categories: ["iot"],
+    preview: "airmonitor",
+    body:
+      "Air quality monitoring system using MQ135, PMS5003, and ESP8266 with Blynk as the controller for realtime monitoring."
+  },
+  {
+    name: "Traffic Detection",
+    course: "Computer Vision in IoT Course",
+    semester: "5th Semester Project",
+    grade: "Grade 93 / A",
+    categories: ["ai", "iot"],
+    preview: "traffic",
+    body:
+      "Traffic detection program using object detection with YOLO11, including configuration, hyperparameter work, and model training until reaching mAP value."
+  },
+  {
+    name: "Little Carts",
+    course: "Mobile Programming Course",
+    semester: "4th Semester Project",
+    grade: "Grade 85 / A",
+    categories: ["mobile"],
+    preview: "foodapp",
+    body:
+      "Food delivery application using Kotlin, Android Studio, Firebase, and Figma for the design prototype."
+  },
+  {
+    name: "Found It",
+    course: "Software Engineering Course",
+    semester: "4th Semester Project",
+    grade: "Grade 87 / A",
+    categories: ["mobile"],
+    preview: "foundapp",
+    body:
+      "Campus lost and found mobile application using Kotlin, Android Studio, Firebase, and Figma for the design prototype."
+  },
+  {
+    name: "AR Garuda",
+    course: "Multimedia Mix Reality Course",
+    semester: "4th Semester Project",
+    grade: "Grade 88 / A",
+    categories: ["ar", "mobile"],
+    preview: "argaruda",
+    body:
+      "Augmented reality history education application using Unity, C#, Visual Studio Code, and Figma."
+  },
+  {
+    name: "Air Quality PMS",
+    course: "Embedded System Course",
+    semester: "4th Semester Project",
+    grade: "Grade 100 / A+",
+    categories: ["iot"],
+    preview: "airpms",
+    body:
+      "Realtime air quality monitoring using PMS5003 sensor with ESP32, Arduino IDE, C++, and Firebase."
+  },
+  {
+    name: "Smart Door",
+    course: "Cyber Security in IoT Course",
+    semester: "4th Semester Project",
+    grade: "Grade 100 / A+",
+    categories: ["iot", "security"],
+    preview: "smartdoor",
+    body:
+      "Smart camera door lock using WiFi, ESP32CAM, Arduino IDE, C++, and Telegram bot photo/push notifications."
+  },
+  {
+    name: "AR Air Quality",
+    course: "Research Method Course",
+    semester: "4th Semester Project",
+    grade: "Grade 100 / A+",
+    categories: ["ar", "research"],
+    preview: "paper",
+    body:
+      "Research paper titled Augmented Reality for Air Quality Education: An Effective Interactive Approach, prepared in IEEE format and submitted to conference."
+  },
+  {
+    name: "Chat Bot",
+    course: "Artificial Intelligent Course",
+    semester: "3rd Semester Project",
+    grade: "Grade 85 / A",
+    categories: ["ai"],
+    preview: "chatbot",
+    body:
+      "Simple AI chatbot using Python and Visual Studio Code."
+  }
+];
+
+const projectFilters = [
+  ["all", "All"],
+  ["web", "Web"],
+  ["backend", "Backend"],
+  ["devops", "DevOps"],
+  ["mobile", "Mobile"],
+  ["iot", "IoT"],
+  ["ai", "AI"],
+  ["ar", "AR"]
+];
+
+const certificates = [
+  "Introduction to Python by Sololearn 2024",
+  "Fundamental Front-End Web Development by Coding Studio 2024",
+  "Introduction to C Programming by Sololearn 2023",
+  "C Programming Course by Dicoding Academy 2023"
+];
+
+const profileBadges = [
+  "Backend & DevOps Developer",
+  "Payment & Escrow Systems",
+  "API Design",
+  "Database Design",
+  "Deployment Workflow",
+  "System Reliability"
+];
+
+const hardSkills = [
+  "Kotlin",
+  "Figma",
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "C",
+  "C++",
+  "MySQL",
+  "Python",
+  "Java",
+  "NestJS",
+  "Next.js",
+  "Microsoft Office"
+];
+
+const softSkills = [
+  "Team leadership",
+  "Team management",
+  "Project management",
+  "Event organizing",
+  "Teamwork",
+  "Creativity",
+  "Public speaking",
+  "Communication",
+  "Problem solving",
+  "Analytical thinking"
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Muhammad Irham Rizq portfolio - Backend and DevOps developer, BINUS Computer Science student, building reliable backend systems, deployment workflows, payment infrastructure, and SalesOps AI."
+    />
+    <meta name="theme-color" content="#183f2b" />
+    <meta property="og:title" content="Muhammad Irham Rizq | Backend & DevOps Portfolio" />
+    <meta
+      property="og:description"
+      content="Portfolio of Muhammad Irham Rizq: backend engineering, DevOps, SalesOps AI, payment infrastructure, community leadership, and technical projects."
+    />
+    <meta property="og:image" content="/assets/kuronashiro-header.jpg" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/assets/kuronashiro-avatar.png" />
+    <title>Muhammad Irham Rizq | Portfolio</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Muhammad Irham Rizq home">
+        <img src="/assets/kuronashiro-avatar.png" alt="" />
+        <span>Irham Rizq</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+        <button class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+          Dark Mode
+        </button>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <img class="hero-bg" src="/assets/kuronashiro-header.jpg" alt="" />
+        <div class="hero-shade"></div>
+        <div class="hero-content">
+          <h1 id="hero-title">Muhammad Irham Rizq</h1>
+          <p class="hero-role">Backend & DevOps Developer | Payment & Escrow Systems</p>
+          <p class="hero-copy">
+            Undergraduate Computer Science student at Bina Nusantara University
+            (BINUS), building reliable backend systems, deployment workflows,
+            and payment infrastructure for digital products.
+          </p>
+          <div class="role-row" aria-label="Portfolio focus areas">
+            {roles.map((role) => <span>{role}</span>)}
+          </div>
+          <div class="contact-line" aria-label="Contact links">
+            <a href={contact.whatsapp}>{contact.whatsappLabel}</a>
+            <a href={`mailto:${contact.email}`}>{contact.email}</a>
+            <a href={contact.linkedin}>{contact.linkedinLabel}</a>
+            <a href={contact.github}>{contact.githubLabel}</a>
+            <a href={contact.gitlab}>{contact.gitlabLabel}</a>
+          </div>
+          <div class="hero-actions">
+            <a class="button primary" href="#projects">View Projects</a>
+            <a class="button secondary" href={contact.cv}>Open CV</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="intro section-grid reveal" aria-labelledby="about-title">
+        <div>
+          <p class="section-kicker">Summary</p>
+          <h2 id="about-title">A builder, organizer, and problem solver.</h2>
+        </div>
+        <div class="intro-copy">
+          <p>
+            Born in Martapura, Kalimantan on 30 July 2004, I am a dedicated
+            undergraduate student with a passion for growing intermediate skills
+            in web development, application development, UI/UX, and event
+            coordination. I work well in collaborative environments, adapt to
+            change, and bring a problem-solving mindset to technical and
+            community work.
+          </p>
+          <div class="code-note" aria-label="Personal profile snippet">
+            <span>const irham = &#123;</span>
+            <span>&nbsp;&nbsp;focus: ["web", "mobile", "uiux", "events"],</span>
+            <span>&nbsp;&nbsp;mindset: "persistent, adaptable, cooperative"</span>
+            <span>&#125;;</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="education section-grid reveal" aria-labelledby="education-title">
+        <div>
+          <p class="section-kicker">Education</p>
+          <h2 id="education-title">BINUS University, Computer Science.</h2>
+        </div>
+        <article class="education-card">
+          <div class="item-head">
+            <div>
+              <p>Bina Nusantara University</p>
+              <h3>Computer Science</h3>
+            </div>
+            <time>Aug 2023 - 2027</time>
+          </div>
+          <p class="education-interest">
+            Interest in: Web Developer, App Developer, UI/UX, Design
+          </p>
+          <ul class="detail-list">
+            <li>
+              Learning HTML, CSS, JavaScript, C, Python, MySQL, Java, Kotlin,
+              NestJS, and Next.js.
+            </li>
+            <li>
+              Active in HIMTI and Vice Chairman in BINUSIAN GAMING Bandung.
+            </li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="stats-band reveal" aria-label="Portfolio highlights">
+        {stats.map(([value, label]) => (
+          <div>
+            <strong>{value}</strong>
+            <span>{label}</span>
+          </div>
+        ))}
+      </section>
+
+      <section class="github-section section-grid reveal" aria-labelledby="github-title">
+        <div>
+          <p class="section-kicker">GitHub Direction</p>
+          <h2 id="github-title">Backend, DevOps, and reliable product systems.</h2>
+          <p>
+            Your GitHub profile positions you around backend engineering,
+            DevOps workflows, payment infrastructure, escrow systems, and
+            production-ready reliability. I pulled that direction into the
+            portfolio so it supports the CV instead of feeling separate.
+          </p>
+          <div class="profile-badges">
+            {profileBadges.map((badge) => <span>{badge}</span>)}
+          </div>
+        </div>
+        <div class="focus-grid">
+          {githubFocus.map((group) => (
+            <article>
+              <h3>{group.label}</h3>
+              <div class="skill-cloud compact">
+                {group.items.map((item) => <span>{item}</span>)}
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="case-study reveal" aria-labelledby="case-title">
+        <div class="case-copy">
+          <p class="section-kicker">Featured Case Study</p>
+          <h2 id="case-title">{featuredCase.name}</h2>
+          <p>{featuredCase.description}</p>
+          <div class="case-actions">
+            <a class="button primary" href="/projects/salesops-ai">Read Case Study</a>
+            <a class="button secondary dark" href={featuredCase.repo}>Open GitHub Repo</a>
+            <a class="button secondary dark" href="#projects">See All Projects</a>
+          </div>
+        </div>
+        <div class="case-panel">
+          <div class="dashboard-preview" aria-label="SalesOps dashboard preview">
+            <div class="preview-window-bar">
+              <span></span>
+              <span></span>
+              <span></span>
+              <strong>salesops.local</strong>
+            </div>
+            <div class="dashboard-shell">
+              <aside>
+                <b>SalesOps</b>
+                <span>Overview</span>
+                <span>Transactions</span>
+                <span>AI Detection</span>
+                <span>Audit Logs</span>
+              </aside>
+              <div class="dashboard-main">
+                <div class="mini-kpis">
+                  <div><strong>437</strong><span>Transactions</span></div>
+                  <div><strong>IDR</strong><span>Revenue</span></div>
+                  <div><strong>21</strong><span>Anomalies</span></div>
+                </div>
+                <div class="mini-chart">
+                  <i style="height: 34%"></i>
+                  <i style="height: 56%"></i>
+                  <i style="height: 42%"></i>
+                  <i style="height: 76%"></i>
+                  <i style="height: 62%"></i>
+                  <i style="height: 88%"></i>
+                </div>
+                <div class="mini-table">
+                  <span></span><span></span><span></span>
+                  <span></span><span></span><span></span>
+                  <span></span><span></span><span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p>{featuredCase.status}</p>
+          <div class="case-metrics">
+            {featuredCase.metrics.map(([value, label]) => (
+              <div>
+                <strong>{value}</strong>
+                <span>{label}</span>
+              </div>
+            ))}
+          </div>
+          <ul class="detail-list">
+            {featuredCase.highlights.map((highlight) => <li>{highlight}</li>)}
+          </ul>
+          <div class="repo-paths" aria-label="Important repository paths">
+            {featuredCase.repoFiles.map((file) => <code>{file}</code>)}
+          </div>
+        </div>
+      </section>
+
+      <section class="snapshots reveal" aria-labelledby="snapshot-title">
+        <div class="section-heading">
+          <p class="section-kicker">Preview</p>
+          <h2 id="snapshot-title">What the main project feels like in use.</h2>
+        </div>
+        <div class="snapshot-grid">
+          {demoSnapshots.map((snapshot) => (
+            <article>
+              <span>{snapshot.label}</span>
+              <h3>{snapshot.title}</h3>
+              <p>{snapshot.detail}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="architecture reveal" aria-labelledby="architecture-title">
+        <div class="section-heading">
+          <p class="section-kicker">System Architecture</p>
+          <h2 id="architecture-title">How the SalesOps AI stack moves data.</h2>
+        </div>
+        <div class="architecture-flow" aria-label="SalesOps AI architecture flow">
+          {architectureSteps.map((step, index) => (
+            <article class="architecture-node" style={`--step: ${index}`}>
+              <span>{step.type}</span>
+              <h3>{step.name}</h3>
+              <p>{step.detail}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="tech-stack-wall reveal" aria-labelledby="stack-title">
+        <div class="section-heading">
+          <p class="section-kicker">Tech Stack</p>
+          <h2 id="stack-title">A GitHub-style wall of tools I work with.</h2>
+        </div>
+        <div class="stack-groups">
+          {techStackGroups.map((group) => (
+            <article>
+              <h3>{group.title}</h3>
+              <div class="stack-badges">
+                {group.items.map((item) => (
+                  <span data-stack={item.toLowerCase().replaceAll(" ", "-").replaceAll(".", "")}>
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="section-grid reveal" id="experience" aria-labelledby="experience-title">
+        <div>
+          <p class="section-kicker">Experience</p>
+          <h2 id="experience-title">Developer communities, campus leadership, and business.</h2>
+        </div>
+        <div class="timeline">
+          {experiences.map((item) => (
+            <article class="experience-item reveal">
+              <div class="item-head">
+                <div>
+                  <p>{item.org} <span>{item.meta}</span></p>
+                  <h3>{item.title}</h3>
+                </div>
+                <time>{item.period}</time>
+              </div>
+              {item.intro && <p class="item-intro">{item.intro}</p>}
+              <ul class="detail-list">
+                {item.bullets.map((bullet) => <li>{bullet}</li>)}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="projects reveal" id="projects" aria-labelledby="projects-title">
+        <div class="section-heading">
+          <p class="section-kicker">Technical Projects</p>
+          <h2 id="projects-title">Coursework and production-style builds from the CV.</h2>
+        </div>
+        <div class="project-filters" aria-label="Filter projects">
+          {projectFilters.map(([value, label], index) => (
+            <button
+              class={index === 0 ? "active" : ""}
+              type="button"
+              data-filter={value}
+              aria-pressed={index === 0 ? "true" : "false"}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+        <div class="project-grid">
+          {projects.map((project) => (
+            <article
+              class:list={["project-card", "reveal", { featured: project.featured }]}
+              data-categories={project.categories.join(" ")}
+            >
+              <div class:list={["project-preview", `preview-${project.preview}`]} aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+                <i></i>
+              </div>
+              <p>{project.course}</p>
+              <h3>{project.name}</h3>
+              <div class="project-meta">
+                <span>{project.semester}</span>
+                <span>{project.grade}</span>
+              </div>
+              <p>{project.body}</p>
+              {project.featured && <a class="project-link" href="/projects/salesops-ai">Read case study</a>}
+              {project.repo && <a class="project-link" href={project.repo}>View repository</a>}
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="skills-section section-grid reveal" id="skills" aria-labelledby="skills-title">
+        <div>
+          <p class="section-kicker">Additional Information</p>
+          <h2 id="skills-title">Certificates, skills, and languages.</h2>
+        </div>
+        <div class="info-grid">
+          <article>
+            <h3>E-Certificates / Awards</h3>
+            <ul class="detail-list">
+              {certificates.map((certificate) => <li>{certificate}</li>)}
+            </ul>
+          </article>
+          <article>
+            <h3>Hard Skills</h3>
+            <div class="skill-cloud">
+              {hardSkills.map((skill) => <span>{skill}</span>)}
+            </div>
+          </article>
+          <article>
+            <h3>Soft Skills</h3>
+            <div class="skill-cloud">
+              {softSkills.map((skill) => <span>{skill}</span>)}
+            </div>
+          </article>
+          <article>
+            <h3>Languages</h3>
+            <p><strong>Indonesian:</strong> Full professional proficiency</p>
+            <p><strong>English:</strong> Limited working proficiency</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="brand-strip reveal" aria-labelledby="brand-title">
+        <div>
+          <p class="section-kicker">Visual Identity</p>
+          <h2 id="brand-title">Kuronashiro energy, portfolio clarity.</h2>
+          <p>
+            The site keeps the playful Kuronashiro green, blue, and illustrated
+            identity, then gives your CV content a clearer developer portfolio
+            structure for recruiters, collaborators, and campus communities.
+          </p>
+        </div>
+        <img src="/assets/kuronashiro-avatar.png" alt="Kuronashiro Hobby avatar illustration" />
+      </section>
+
+      <section class="contact reveal" id="contact" aria-labelledby="contact-title">
+        <p class="section-kicker">Contact</p>
+        <h2 id="contact-title">Let us build something useful and lively.</h2>
+        <div class="contact-actions">
+          <a class="button primary" href={`mailto:${contact.email}`}>Email</a>
+          <a class="button secondary" href={contact.linkedin}>LinkedIn</a>
+          <a class="button secondary" href={contact.whatsapp}>WhatsApp</a>
+          <a class="button secondary" href={contact.instagram}>Instagram</a>
+          <a class="button secondary" href={contact.github}>GitHub</a>
+          <a class="button secondary" href={contact.gitlab}>GitLab</a>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div>
+        <strong>Muhammad Irham Rizq</strong>
+        <span>Backend & DevOps Developer | Built with Astro</span>
+      </div>
+      <div>
+        <a href={contact.github}>GitHub</a>
+        <a href={contact.gitlab}>GitLab</a>
+        <a href={contact.linkedin}>LinkedIn</a>
+        <a href={contact.cv}>CV</a>
+      </div>
+    </footer>
+    <script>
+      const themeToggle = document.querySelector(".theme-toggle");
+      const savedTheme = localStorage.getItem("portfolio-theme");
+
+      if (savedTheme === "dark") {
+        document.documentElement.dataset.theme = "dark";
+        themeToggle?.setAttribute("aria-pressed", "true");
+        if (themeToggle) themeToggle.textContent = "Light Mode";
+      }
+
+      themeToggle?.addEventListener("click", () => {
+        const isDark = document.documentElement.dataset.theme === "dark";
+        document.documentElement.dataset.theme = isDark ? "" : "dark";
+        localStorage.setItem("portfolio-theme", isDark ? "light" : "dark");
+        themeToggle.setAttribute("aria-pressed", isDark ? "false" : "true");
+        themeToggle.textContent = isDark ? "Dark Mode" : "Light Mode";
+      });
+
+      const revealElements = document.querySelectorAll(".reveal");
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.16 }
+      );
+
+      revealElements.forEach((element) => revealObserver.observe(element));
+
+      const filterButtons = document.querySelectorAll("[data-filter]");
+      const projectCards = document.querySelectorAll("[data-categories]");
+
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const filter = button.getAttribute("data-filter");
+
+          filterButtons.forEach((item) => {
+            item.classList.toggle("active", item === button);
+            item.setAttribute("aria-pressed", item === button ? "true" : "false");
+          });
+
+          projectCards.forEach((card) => {
+            const categories = card.getAttribute("data-categories") || "";
+            const isVisible = filter === "all" || categories.split(" ").includes(filter || "");
+            card.toggleAttribute("hidden", !isVisible);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

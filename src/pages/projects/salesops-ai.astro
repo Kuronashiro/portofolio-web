@@ -1,0 +1,246 @@
+---
+import "../../styles/global.css";
+
+const stack = [
+  "Next.js",
+  "React",
+  "NestJS",
+  "Prisma",
+  "PostgreSQL",
+  "FastAPI",
+  "scikit-learn",
+  "Docker Compose",
+  "Nginx",
+  "Prometheus",
+  "Grafana",
+  "Playwright"
+];
+
+const features = [
+  "Admin dashboard with revenue, transaction, category, top product, duplicate, and anomaly views.",
+  "Searchable and filterable transaction table with CSV import/export workflows.",
+  "JWT authentication, role-based access control, protected routes, audit logs, rate limiting, Helmet headers, and restricted CORS.",
+  "FastAPI AI service for category prediction using TF-IDF and Linear SVM.",
+  "Duplicate candidate detection using normalized text, token similarity, edit distance, and n-gram cosine similarity.",
+  "IQR-based price anomaly detection with tuned thresholds for dashboard review.",
+  "Docker Compose stack with PostgreSQL, API, dashboard, AI inference, Nginx, Prometheus, and Grafana.",
+  "Final docs covering deployment, security, E2E testing, performance, AI detection, and demo readiness."
+];
+
+const architecture = [
+  ["Browser", "Uses the dashboard over HTTPS"],
+  ["Nginx", "Routes dashboard, API, AI, and Grafana"],
+  ["Next.js", "Renders dashboard and admin screens"],
+  ["NestJS API", "Handles auth, analytics, transactions, audit logs"],
+  ["PostgreSQL", "Stores real transaction data"],
+  ["FastAPI AI", "Predicts category labels"],
+  ["Prometheus", "Scrapes API and AI metrics"],
+  ["Grafana", "Visualizes health and metrics"]
+];
+
+const proof = [
+  ["6", "Playwright E2E tests passed"],
+  ["8", "API unit tests passed"],
+  ["0", "API audit vulnerabilities in final report"],
+  ["7", "main Docker services"]
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="SalesOps AI case study by Muhammad Irham Rizq: Next.js, NestJS, PostgreSQL, FastAPI, Docker, Nginx, Prometheus, Grafana, AI detection, and deployment workflow."
+    />
+    <meta name="theme-color" content="#183f2b" />
+    <meta property="og:title" content="SalesOps AI Case Study | Muhammad Irham Rizq" />
+    <meta
+      property="og:description"
+      content="A local production-style SalesOps platform with dashboard, backend API, AI inference, PostgreSQL, Docker, Nginx, Prometheus, and Grafana."
+    />
+    <meta property="og:image" content="/assets/kuronashiro-header.jpg" />
+    <meta property="og:type" content="article" />
+    <link rel="icon" href="/assets/kuronashiro-avatar.png" />
+    <title>SalesOps AI Case Study | Muhammad Irham Rizq</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Back to portfolio">
+        <img src="/assets/kuronashiro-avatar.png" alt="" />
+        <span>Irham Rizq</span>
+      </a>
+      <nav aria-label="Case study navigation">
+        <a href="/">Home</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#proof">Proof</a>
+        <a href="https://github.com/Kuronashiro/salesops-ai">GitHub</a>
+        <button class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+          Dark Mode
+        </button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="case-hero">
+        <div>
+          <p class="section-kicker">Featured Case Study</p>
+          <h1>SalesOps AI</h1>
+          <p class="hero-role">Kuronashiro Hobby Website | Internship Project</p>
+          <p class="hero-copy">
+            A production-style sales operations dashboard that combines real
+            marketplace transaction data, AI-assisted detection, secure admin
+            workflows, and a local DevOps deployment stack.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="https://github.com/Kuronashiro/salesops-ai">Open Repository</a>
+            <a class="button secondary" href="/">Back to Portfolio</a>
+          </div>
+        </div>
+        <div class="dashboard-preview" aria-label="SalesOps AI dashboard preview">
+          <div class="preview-window-bar">
+            <span></span>
+            <span></span>
+            <span></span>
+            <strong>https://localhost</strong>
+          </div>
+          <div class="dashboard-shell">
+            <aside>
+              <b>SalesOps</b>
+              <span>Overview</span>
+              <span>Transactions</span>
+              <span>AI Detection</span>
+              <span>Audit Logs</span>
+            </aside>
+            <div class="dashboard-main">
+              <div class="mini-kpis">
+                <div><strong>437</strong><span>Transactions</span></div>
+                <div><strong>21</strong><span>Anomalies</span></div>
+                <div><strong>0</strong><span>API audit issues</span></div>
+              </div>
+              <div class="mini-chart">
+                <i style="height: 48%"></i>
+                <i style="height: 66%"></i>
+                <i style="height: 39%"></i>
+                <i style="height: 82%"></i>
+                <i style="height: 58%"></i>
+                <i style="height: 92%"></i>
+              </div>
+              <div class="mini-table">
+                <span></span><span></span><span></span>
+                <span></span><span></span><span></span>
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-detail-grid">
+        <article>
+          <p class="section-kicker">Problem</p>
+          <h2>Marketplace data needs structure.</h2>
+          <p>
+            Kuronashiro Hobby has real sales activity across marketplace channels.
+            The project turns spreadsheet-style transaction records into a
+            searchable dashboard with analytics, detection, and admin controls.
+          </p>
+        </article>
+        <article>
+          <p class="section-kicker">Role</p>
+          <h2>Full-stack builder with DevOps ownership.</h2>
+          <p>
+            The work covers dashboard UI, backend API, database model, AI
+            inference service, local deployment, monitoring, security checks,
+            testing, and project documentation.
+          </p>
+        </article>
+      </section>
+
+      <section class="tech-stack-wall" aria-labelledby="case-stack">
+        <div class="section-heading">
+          <p class="section-kicker">Stack</p>
+          <h2 id="case-stack">Tools used in this project.</h2>
+        </div>
+        <div class="stack-badges wide">
+          {stack.map((item) => <span>{item}</span>)}
+        </div>
+      </section>
+
+      <section class="architecture" id="architecture" aria-labelledby="architecture-title">
+        <div class="section-heading">
+          <p class="section-kicker">Architecture</p>
+          <h2 id="architecture-title">Local production-style service flow.</h2>
+        </div>
+        <div class="architecture-flow case-flow" aria-label="SalesOps AI service architecture">
+          {architecture.map(([name, detail], index) => (
+            <article class="architecture-node" style={`--step: ${index}`}>
+              <span>{index + 1}</span>
+              <h3>{name}</h3>
+              <p>{detail}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="case-detail-grid">
+        <article>
+          <p class="section-kicker">Features</p>
+          <h2>What the system does.</h2>
+          <ul class="detail-list">
+            {features.map((feature) => <li>{feature}</li>)}
+          </ul>
+        </article>
+        <article id="proof">
+          <p class="section-kicker">Proof</p>
+          <h2>Testing, security, and readiness.</h2>
+          <div class="case-metrics">
+            {proof.map(([value, label]) => (
+              <div>
+                <strong>{value}</strong>
+                <span>{label}</span>
+              </div>
+            ))}
+          </div>
+          <p>
+            The repository includes final report notes for E2E testing, security
+            hardening, deployment guide, performance optimization, and AI
+            detection behavior.
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <strong>SalesOps AI</strong>
+        <span>Case study by Muhammad Irham Rizq</span>
+      </div>
+      <div>
+        <a href="/">Portfolio</a>
+        <a href="https://github.com/Kuronashiro/salesops-ai">GitHub</a>
+        <a href="/files/cv-muhammad-irham-rizq-2025.pdf">CV</a>
+      </div>
+    </footer>
+    <script>
+      const themeToggle = document.querySelector(".theme-toggle");
+      const savedTheme = localStorage.getItem("portfolio-theme");
+
+      if (savedTheme === "dark") {
+        document.documentElement.dataset.theme = "dark";
+        themeToggle?.setAttribute("aria-pressed", "true");
+        if (themeToggle) themeToggle.textContent = "Light Mode";
+      }
+
+      themeToggle?.addEventListener("click", () => {
+        const isDark = document.documentElement.dataset.theme === "dark";
+        document.documentElement.dataset.theme = isDark ? "" : "dark";
+        localStorage.setItem("portfolio-theme", isDark ? "light" : "dark");
+        themeToggle.setAttribute("aria-pressed", isDark ? "false" : "true");
+        themeToggle.textContent = isDark ? "Dark Mode" : "Light Mode";
+      });
+    </script>
+  </body>
+</html>
