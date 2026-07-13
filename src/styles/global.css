@@ -11,6 +11,8 @@
   --violet-soft: #efe6f7;
   --paper: #fffdf4;
   --muted: #657268;
+  --text-secondary: rgba(26, 34, 45, 0.78);
+  --text-tertiary: rgba(26, 34, 45, 0.72);
   --line: rgba(26, 34, 45, 0.16);
   --shadow: 0 24px 70px rgba(24, 63, 43, 0.18);
 }
@@ -27,9 +29,12 @@
   --violet: #bc8cff;
   --violet-soft: #21262d;
   --paper: #0d1117;
-  --muted: #8b949e;
+  --muted: #b1bac4;
+  --text-secondary: #d0d7de;
+  --text-tertiary: #b1bac4;
   --line: rgba(240, 246, 252, 0.14);
   --shadow: 0 24px 70px rgba(1, 4, 9, 0.34);
+  color-scheme: dark;
 }
 
 * {
@@ -205,7 +210,7 @@ nav {
 }
 
 nav a {
-  color: rgba(26, 34, 45, 0.74);
+  color: var(--text-secondary);
 }
 
 nav a:hover {
@@ -492,7 +497,7 @@ h3 {
 }
 
 .architecture-node p {
-  color: rgba(26, 34, 45, 0.72);
+  color: var(--text-tertiary);
   font-size: 0.9rem;
   margin-bottom: 0;
 }
@@ -653,12 +658,8 @@ time,
 }
 
 .item-intro {
-  color: rgba(26, 34, 45, 0.82);
+  color: var(--text-secondary);
   margin-bottom: 14px;
-}
-
-:root[data-theme="dark"] .item-intro {
-  color: #c9d1d9;
 }
 
 .detail-list {
@@ -675,7 +676,7 @@ time,
 }
 
 .github-section p {
-  color: rgba(26, 34, 45, 0.78);
+  color: var(--text-secondary);
 }
 
 .profile-badges {
@@ -970,7 +971,7 @@ time,
 }
 
 .case-metrics span {
-  color: rgba(26, 34, 45, 0.72);
+  color: var(--text-tertiary);
   font-size: 0.8rem;
   font-weight: 850;
 }
@@ -1035,7 +1036,7 @@ time,
 }
 
 .snapshot-grid p {
-  color: rgba(26, 34, 45, 0.72);
+  color: var(--text-tertiary);
   margin-bottom: 34px;
 }
 
