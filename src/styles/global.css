@@ -488,7 +488,6 @@ h3 {
 
 .section-grid,
 .projects,
-.brand-strip,
 .contact,
 .case-study,
 .snapshots,
@@ -1797,22 +1796,6 @@ time,
   padding-top: 0;
 }
 
-.brand-strip {
-  align-items: center;
-  display: grid;
-  gap: 38px;
-  grid-template-columns: minmax(0, 1fr) minmax(230px, 360px);
-}
-
-.brand-strip img {
-  aspect-ratio: 1;
-  background: var(--cream);
-  border: 3px solid var(--ink);
-  border-radius: 50%;
-  box-shadow: 12px 12px 0 var(--violet);
-  object-fit: cover;
-}
-
 .contact {
   background:
     radial-gradient(circle at 50% 0%, rgba(158, 208, 220, 0.18), transparent 36%),
@@ -1879,7 +1862,6 @@ time,
 
 @media (max-width: 920px) {
   .section-grid,
-  .brand-strip,
   .case-study,
   .case-hero,
   .case-detail-grid {
@@ -2117,7 +2099,6 @@ time,
 
   .section-grid,
   .projects,
-  .brand-strip,
   .contact,
   .case-study,
   .snapshots,
