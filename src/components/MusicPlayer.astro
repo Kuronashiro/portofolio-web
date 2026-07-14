@@ -1,0 +1,489 @@
+---
+import { ChevronDown, Disc3, Pause, Play, Volume2, VolumeX } from "@lucide/astro";
+---
+
+<aside class="music-player" data-music-player data-playing="false" data-expanded="false" aria-label="Background music player">
+  <audio preload="metadata" loop>
+    <source src="/audio/holizna-complications.mp3" type="audio/mpeg" />
+  </audio>
+
+  <div class="player-bar">
+    <button
+      class="details-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="music-player-details"
+      title="Open music controls"
+    >
+      <span class="album-icon" aria-hidden="true">
+        <Disc3 size={21} />
+      </span>
+      <span class="track-summary">
+        <small>Kuronashiro Radio</small>
+        <strong>Complications</strong>
+      </span>
+      <ChevronDown class="details-chevron" size={18} aria-hidden="true" />
+    </button>
+
+    <button
+      class="play-toggle"
+      type="button"
+      aria-label="Play background music"
+      aria-pressed="false"
+      title="Play background music"
+    >
+      <Play class="play-icon" size={20} fill="currentColor" aria-hidden="true" />
+      <Pause class="pause-icon" size={20} fill="currentColor" aria-hidden="true" />
+    </button>
+  </div>
+
+  <div class="player-details" id="music-player-details" hidden>
+    <div class="progress-row">
+      <input
+        class="track-progress"
+        type="range"
+        min="0"
+        max="100"
+        value="0"
+        step="0.1"
+        aria-label="Music progress"
+      />
+      <time class="player-time">0:00 / 0:00</time>
+    </div>
+
+    <div class="volume-row">
+      <button
+        class="mute-toggle"
+        type="button"
+        aria-label="Mute background music"
+        aria-pressed="false"
+        title="Mute background music"
+      >
+        <Volume2 class="volume-icon" size={18} aria-hidden="true" />
+        <VolumeX class="muted-icon" size={18} aria-hidden="true" />
+      </button>
+      <input
+        class="volume-control"
+        type="range"
+        min="0"
+        max="1"
+        value="0.25"
+        step="0.05"
+        aria-label="Background music volume"
+      />
+    </div>
+
+    <a
+      class="music-credit"
+      href="https://freemusicarchive.org/music/holiznacc0/chiptunes/complications/"
+      target="_blank"
+      rel="noreferrer"
+    >
+      "Complications" by HoliznaCC0 - CC0
+    </a>
+  </div>
+
+  <p class="player-status" aria-live="polite">Background music paused.</p>
+</aside>
+
+<script>
+  const musicPlayers = document.querySelectorAll<HTMLElement>("[data-music-player]");
+
+  musicPlayers.forEach((player) => {
+    const audio = player.querySelector("audio");
+    const detailsToggle = player.querySelector<HTMLButtonElement>(".details-toggle");
+    const details = player.querySelector<HTMLElement>(".player-details");
+    const playToggle = player.querySelector<HTMLButtonElement>(".play-toggle");
+    const muteToggle = player.querySelector<HTMLButtonElement>(".mute-toggle");
+    const progress = player.querySelector<HTMLInputElement>(".track-progress");
+    const volumeControl = player.querySelector<HTMLInputElement>(".volume-control");
+    const playerTime = player.querySelector<HTMLTimeElement>(".player-time");
+    const status = player.querySelector<HTMLElement>(".player-status");
+
+    if (
+      !audio ||
+      !detailsToggle ||
+      !details ||
+      !playToggle ||
+      !muteToggle ||
+      !progress ||
+      !volumeControl ||
+      !playerTime ||
+      !status
+    ) {
+      return;
+    }
+
+    const storedVolume = localStorage.getItem("portfolio-music-volume");
+    const savedVolume = storedVolume === null ? Number.NaN : Number(storedVolume);
+    const savedPosition = Number(sessionStorage.getItem("portfolio-music-position"));
+    audio.volume = Number.isFinite(savedVolume) ? Math.min(Math.max(savedVolume, 0), 1) : 0.25;
+    volumeControl.value = String(audio.volume);
+
+    const formatTime = (seconds: number) => {
+      if (!Number.isFinite(seconds)) return "0:00";
+      const minutes = Math.floor(seconds / 60);
+      const remainingSeconds = Math.floor(seconds % 60);
+      return `${minutes}:${remainingSeconds.toString().padStart(2, "0")}`;
+    };
+
+    const syncVolume = () => {
+      const isMuted = audio.muted || audio.volume === 0;
+      player.dataset.muted = String(isMuted);
+      muteToggle.setAttribute("aria-pressed", String(isMuted));
+      muteToggle.setAttribute("aria-label", isMuted ? "Unmute background music" : "Mute background music");
+      muteToggle.setAttribute("title", isMuted ? "Unmute background music" : "Mute background music");
+    };
+
+    const syncPlayback = () => {
+      const isPlaying = !audio.paused;
+      player.dataset.playing = String(isPlaying);
+      playToggle.setAttribute("aria-pressed", String(isPlaying));
+      playToggle.setAttribute("aria-label", isPlaying ? "Pause background music" : "Play background music");
+      playToggle.setAttribute("title", isPlaying ? "Pause background music" : "Play background music");
+      status.textContent = isPlaying ? "Background music playing." : "Background music paused.";
+    };
+
+    const syncProgress = () => {
+      const duration = Number.isFinite(audio.duration) ? audio.duration : 0;
+      const percentage = duration ? (audio.currentTime / duration) * 100 : 0;
+      progress.value = String(percentage);
+      playerTime.textContent = `${formatTime(audio.currentTime)} / ${formatTime(duration)}`;
+    };
+
+    detailsToggle.addEventListener("click", () => {
+      const isExpanded = detailsToggle.getAttribute("aria-expanded") === "true";
+      detailsToggle.setAttribute("aria-expanded", String(!isExpanded));
+      detailsToggle.setAttribute("title", isExpanded ? "Open music controls" : "Close music controls");
+      player.dataset.expanded = String(!isExpanded);
+      details.hidden = isExpanded;
+    });
+
+    playToggle.addEventListener("click", async () => {
+      if (!audio.paused) {
+        audio.pause();
+        return;
+      }
+
+      try {
+        await audio.play();
+      } catch {
+        status.textContent = "Music could not start. Please tap play again.";
+      }
+    });
+
+    muteToggle.addEventListener("click", () => {
+      audio.muted = !audio.muted;
+      syncVolume();
+    });
+
+    volumeControl.addEventListener("input", () => {
+      audio.volume = Number(volumeControl.value);
+      audio.muted = false;
+      localStorage.setItem("portfolio-music-volume", String(audio.volume));
+      syncVolume();
+    });
+
+    progress.addEventListener("input", () => {
+      if (Number.isFinite(audio.duration)) {
+        audio.currentTime = (Number(progress.value) / 100) * audio.duration;
+        syncProgress();
+      }
+    });
+
+    audio.addEventListener("play", syncPlayback);
+    audio.addEventListener("pause", syncPlayback);
+    audio.addEventListener("volumechange", syncVolume);
+    audio.addEventListener("timeupdate", () => {
+      syncProgress();
+      sessionStorage.setItem("portfolio-music-position", String(audio.currentTime));
+    });
+    audio.addEventListener("loadedmetadata", () => {
+      if (Number.isFinite(savedPosition) && savedPosition > 0 && savedPosition < audio.duration) {
+        audio.currentTime = savedPosition;
+      }
+      syncProgress();
+    });
+    audio.addEventListener("error", () => {
+      status.textContent = "Background music is currently unavailable.";
+      playToggle.disabled = true;
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && detailsToggle.getAttribute("aria-expanded") === "true") {
+        detailsToggle.click();
+      }
+    });
+
+    syncPlayback();
+    syncVolume();
+    syncProgress();
+  });
+</script>
+
+<style>
+  .music-player {
+    --player-border: rgba(26, 34, 45, 0.18);
+    --player-surface: rgba(255, 253, 244, 0.96);
+    bottom: max(18px, calc(env(safe-area-inset-bottom) + 12px));
+    color: var(--ink);
+    filter: drop-shadow(0 16px 32px rgba(8, 16, 28, 0.24));
+    position: fixed;
+    right: max(18px, calc(env(safe-area-inset-right) + 12px));
+    width: min(310px, calc(100vw - 36px));
+    z-index: 30;
+  }
+
+  :global(:root[data-theme="dark"]) .music-player {
+    --player-border: #30363d;
+    --player-surface: rgba(22, 27, 34, 0.97);
+  }
+
+  button,
+  input {
+    font: inherit;
+  }
+
+  button {
+    color: inherit;
+  }
+
+  .player-bar,
+  .player-details {
+    background: var(--player-surface);
+    border: 1px solid var(--player-border);
+    backdrop-filter: blur(18px);
+  }
+
+  .player-bar {
+    align-items: center;
+    border-radius: 8px;
+    display: grid;
+    gap: 8px;
+    grid-template-columns: minmax(0, 1fr) 42px;
+    min-height: 58px;
+    padding: 7px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .details-toggle,
+  .play-toggle,
+  .mute-toggle {
+    align-items: center;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+  }
+
+  .details-toggle {
+    gap: 10px;
+    justify-content: flex-start;
+    min-width: 0;
+    padding: 0;
+    text-align: left;
+  }
+
+  .album-icon {
+    align-items: center;
+    background: var(--forest);
+    border-radius: 6px;
+    color: #fffdf4;
+    display: inline-flex;
+    flex: 0 0 42px;
+    height: 42px;
+    justify-content: center;
+  }
+
+  :global(:root[data-theme="dark"]) .album-icon {
+    background: var(--leaf);
+  }
+
+  .track-summary {
+    display: grid;
+    line-height: 1.2;
+    min-width: 0;
+  }
+
+  .track-summary small {
+    color: var(--text-tertiary);
+    font-size: 0.68rem;
+    font-weight: 800;
+  }
+
+  .track-summary strong {
+    font-size: 0.88rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .details-chevron {
+    color: var(--text-tertiary);
+    flex: 0 0 auto;
+    transition: transform 180ms ease;
+  }
+
+  [data-expanded="true"] .details-chevron {
+    transform: rotate(180deg);
+  }
+
+  .play-toggle {
+    background: var(--forest);
+    border-radius: 6px;
+    color: #fffdf4;
+    height: 42px;
+    padding: 0;
+    width: 42px;
+  }
+
+  .play-toggle:hover,
+  .play-toggle:focus-visible {
+    background: var(--leaf);
+  }
+
+  .play-toggle:focus-visible,
+  .details-toggle:focus-visible,
+  .mute-toggle:focus-visible,
+  input:focus-visible,
+  .music-credit:focus-visible {
+    outline: 3px solid var(--water);
+    outline-offset: 2px;
+  }
+
+  .pause-icon,
+  [data-playing="true"] .play-icon {
+    display: none;
+  }
+
+  [data-playing="true"] .pause-icon {
+    display: block;
+  }
+
+  [data-playing="true"] .album-icon :global(svg) {
+    animation: record-spin 3s linear infinite;
+  }
+
+  .player-details {
+    border-radius: 8px 8px 0 0;
+    border-bottom: 0;
+    margin: 0 8px -4px;
+    padding: 14px 14px 12px;
+  }
+
+  .progress-row {
+    display: grid;
+    gap: 7px;
+  }
+
+  .track-progress,
+  .volume-control {
+    accent-color: var(--leaf);
+    cursor: pointer;
+    margin: 0;
+    width: 100%;
+  }
+
+  .player-time {
+    color: var(--text-tertiary);
+    display: block;
+    font-size: 0.7rem;
+    font-variant-numeric: tabular-nums;
+    font-weight: 800;
+    line-height: 1;
+    margin: 0;
+    text-align: right;
+  }
+
+  .volume-row {
+    align-items: center;
+    display: grid;
+    gap: 8px;
+    grid-template-columns: 28px minmax(0, 1fr);
+    margin-top: 10px;
+  }
+
+  .mute-toggle {
+    border-radius: 4px;
+    height: 28px;
+    padding: 0;
+    width: 28px;
+  }
+
+  .muted-icon,
+  [data-muted="true"] .volume-icon {
+    display: none;
+  }
+
+  [data-muted="true"] .muted-icon {
+    display: block;
+  }
+
+  .music-credit {
+    color: var(--text-tertiary);
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 800;
+    margin-top: 8px;
+    text-decoration: underline;
+    text-decoration-color: var(--line);
+    text-underline-offset: 3px;
+  }
+
+  .music-credit:hover {
+    color: var(--leaf);
+  }
+
+  .player-status {
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+
+  @keyframes record-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @media (max-width: 680px) {
+    .music-player {
+      bottom: max(12px, calc(env(safe-area-inset-bottom) + 8px));
+      right: 12px;
+      width: min(300px, calc(100vw - 24px));
+    }
+
+    .player-bar {
+      min-height: 54px;
+    }
+
+    .album-icon,
+    .play-toggle {
+      height: 38px;
+      width: 38px;
+    }
+
+    .album-icon {
+      flex-basis: 38px;
+    }
+
+    .player-bar {
+      grid-template-columns: minmax(0, 1fr) 38px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .details-chevron,
+    [data-playing="true"] .album-icon :global(svg) {
+      animation: none;
+      transition: none;
+    }
+  }
+</style>

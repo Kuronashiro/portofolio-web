@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import { BriefcaseBusiness, Code, FileText, Mail, MessageCircle } from "@lucide/astro";
+import MusicPlayer from "../components/MusicPlayer.astro";
 import SiteHeader from "../components/SiteHeader.astro";
 
 const contact = {
@@ -778,6 +779,7 @@ const softSkills = [
         <a href={contact.cv}>CV</a>
       </div>
     </footer>
+    <MusicPlayer />
     <script>
       const revealElements = document.querySelectorAll(".reveal");
       const revealObserver = new IntersectionObserver(
