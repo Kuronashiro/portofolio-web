@@ -1,5 +1,7 @@
 ---
 import "../styles/global.css";
+import { BriefcaseBusiness, Code, FileText, Mail, MessageCircle } from "@lucide/astro";
+import SiteHeader from "../components/SiteHeader.astro";
 
 const contact = {
   email: "Hamrizqyt@gmail.com",
@@ -16,10 +18,10 @@ const contact = {
 };
 
 const roles = [
-  "Backend Engineering",
-  "DevOps & Deployment",
-  "Payment Infrastructure",
-  "System Reliability"
+  { label: "Backend Engineering", short: "Backend" },
+  { label: "DevOps & Deployment", short: "DevOps" },
+  { label: "Payment Infrastructure", short: "Payment" },
+  { label: "System Reliability", short: "Reliability" }
 ];
 
 const stats = [
@@ -27,25 +29,6 @@ const stats = [
   ["IDR 100M+", "online store turnover"],
   ["1500+", "HIMTI participants led"],
   ["100 / A+", "highest project grade"]
-];
-
-const githubFocus = [
-  {
-    label: "Backend",
-    items: ["NestJS", "Prisma", "JWT auth", "RBAC", "REST API"]
-  },
-  {
-    label: "DevOps",
-    items: ["Docker Compose", "Nginx", "GitHub Actions", "Linux", "HTTPS"]
-  },
-  {
-    label: "Data & AI",
-    items: ["PostgreSQL", "FastAPI", "scikit-learn", "TF-IDF", "Linear SVM"]
-  },
-  {
-    label: "Reliability",
-    items: ["Prometheus", "Grafana", "E2E tests", "audit trail", "security checks"]
-  }
 ];
 
 const featuredCase = {
@@ -384,15 +367,6 @@ const certificates = [
   "C Programming Course by Dicoding Academy 2023"
 ];
 
-const profileBadges = [
-  "Backend & DevOps Developer",
-  "Payment & Escrow Systems",
-  "API Design",
-  "Database Design",
-  "Deployment Workflow",
-  "System Reliability"
-];
-
 const hardSkills = [
   "Kotlin",
   "Figma",
@@ -445,21 +419,7 @@ const softSkills = [
     <title>Muhammad Irham Rizq | Portfolio</title>
   </head>
   <body>
-    <header class="site-header">
-      <a class="brand" href="#top" aria-label="Muhammad Irham Rizq home">
-        <img src="/assets/kuronashiro-avatar.png" alt="" />
-        <span>Irham Rizq</span>
-      </a>
-      <nav aria-label="Primary navigation">
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-        <button class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
-          Dark Mode
-        </button>
-      </nav>
-    </header>
+    <SiteHeader />
 
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
@@ -469,12 +429,18 @@ const softSkills = [
           <h1 id="hero-title">Muhammad Irham Rizq</h1>
           <p class="hero-role">Backend & DevOps Developer | Payment & Escrow Systems</p>
           <p class="hero-copy">
-            Undergraduate Computer Science student at Bina Nusantara University
-            (BINUS), building reliable backend systems, deployment workflows,
-            and payment infrastructure for digital products.
+            <span class="hero-copy-desktop">
+              Undergraduate Computer Science student at Bina Nusantara University
+              (BINUS), building reliable backend systems, deployment workflows,
+              and payment infrastructure for digital products.
+            </span>
+            <span class="hero-copy-mobile">
+              BINUS Computer Science student building backend systems, deployment
+              workflows, and reliable digital products.
+            </span>
           </p>
           <div class="role-row" aria-label="Portfolio focus areas">
-            {roles.map((role) => <span>{role}</span>)}
+            {roles.map((role) => <span data-short={role.short}>{role.label}</span>)}
           </div>
           <div class="contact-line" aria-label="Contact links">
             <a href={contact.whatsapp}>{contact.whatsappLabel}</a>
@@ -483,9 +449,27 @@ const softSkills = [
             <a href={contact.github}>{contact.githubLabel}</a>
             <a href={contact.gitlab}>{contact.gitlabLabel}</a>
           </div>
+          <div class="mobile-socials" aria-label="Quick contact links">
+            <a href={`mailto:${contact.email}`} aria-label="Email" title="Email">
+              <Mail size={20} aria-hidden="true" />
+            </a>
+            <a href={contact.linkedin} aria-label="LinkedIn" title="LinkedIn">
+              <BriefcaseBusiness size={20} aria-hidden="true" />
+            </a>
+            <a href={contact.github} aria-label="GitHub" title="GitHub">
+              <Code size={20} aria-hidden="true" />
+            </a>
+            <a href={contact.whatsapp} aria-label="WhatsApp" title="WhatsApp">
+              <MessageCircle size={20} aria-hidden="true" />
+            </a>
+          </div>
           <div class="hero-actions">
             <a class="button primary" href="#projects">View Projects</a>
-            <a class="button secondary" href={contact.cv}>Open CV</a>
+            <a class="button secondary" href={contact.cv}>
+              <FileText class="button-icon" size={18} aria-hidden="true" />
+              <span class="cv-label-desktop">Open CV</span>
+              <span class="cv-label-mobile">CV</span>
+            </a>
           </div>
         </div>
       </section>
@@ -548,32 +532,6 @@ const softSkills = [
             <span>{label}</span>
           </div>
         ))}
-      </section>
-
-      <section class="github-section section-grid reveal" aria-labelledby="github-title">
-        <div>
-          <p class="section-kicker">GitHub Direction</p>
-          <h2 id="github-title">Backend, DevOps, and reliable product systems.</h2>
-          <p>
-            Your GitHub profile positions you around backend engineering,
-            DevOps workflows, payment infrastructure, escrow systems, and
-            production-ready reliability. I pulled that direction into the
-            portfolio so it supports the CV instead of feeling separate.
-          </p>
-          <div class="profile-badges">
-            {profileBadges.map((badge) => <span>{badge}</span>)}
-          </div>
-        </div>
-        <div class="focus-grid">
-          {githubFocus.map((group) => (
-            <article>
-              <h3>{group.label}</h3>
-              <div class="skill-cloud compact">
-                {group.items.map((item) => <span>{item}</span>)}
-              </div>
-            </article>
-          ))}
-        </div>
       </section>
 
       <section class="case-study reveal" aria-labelledby="case-title">
@@ -834,23 +792,6 @@ const softSkills = [
       </div>
     </footer>
     <script>
-      const themeToggle = document.querySelector(".theme-toggle");
-      const savedTheme = localStorage.getItem("portfolio-theme");
-
-      if (savedTheme === "dark") {
-        document.documentElement.dataset.theme = "dark";
-        themeToggle?.setAttribute("aria-pressed", "true");
-        if (themeToggle) themeToggle.textContent = "Light Mode";
-      }
-
-      themeToggle?.addEventListener("click", () => {
-        const isDark = document.documentElement.dataset.theme === "dark";
-        document.documentElement.dataset.theme = isDark ? "" : "dark";
-        localStorage.setItem("portfolio-theme", isDark ? "light" : "dark");
-        themeToggle.setAttribute("aria-pressed", isDark ? "false" : "true");
-        themeToggle.textContent = isDark ? "Dark Mode" : "Light Mode";
-      });
-
       const revealElements = document.querySelectorAll(".reveal");
       const revealObserver = new IntersectionObserver(
         (entries) => {

@@ -1,0 +1,122 @@
+---
+import { Menu, Moon, Sun, X } from "@lucide/astro";
+
+interface Props {
+  caseStudy?: boolean;
+}
+
+const { caseStudy = false } = Astro.props;
+const links = caseStudy
+  ? [
+      ["Home", "/"],
+      ["Architecture", "#architecture"],
+      ["Proof", "#proof"],
+      ["GitHub", "https://github.com/Kuronashiro/salesops-ai"]
+    ]
+  : [
+      ["Experience", "#experience"],
+      ["Projects", "#projects"],
+      ["Skills", "#skills"],
+      ["Contact", "#contact"]
+    ];
+---
+
+<header class="site-header">
+  <a class="brand" href={caseStudy ? "/" : "#top"} aria-label="Muhammad Irham Rizq home">
+    <img src="/assets/kuronashiro-avatar.png" alt="" />
+    <span>Irham Rizq</span>
+  </a>
+
+  <nav class="site-nav" id="site-navigation" aria-label="Primary navigation">
+    {links.map(([label, href]) => <a href={href}>{label}</a>)}
+  </nav>
+
+  <div class="header-controls">
+    <button
+      class="theme-toggle"
+      type="button"
+      aria-label="Switch to dark mode"
+      aria-pressed="false"
+      title="Change color theme"
+    >
+      <Moon class="theme-icon theme-icon-moon" size={19} aria-hidden="true" />
+      <Sun class="theme-icon theme-icon-sun" size={19} aria-hidden="true" />
+      <span class="theme-label">Dark Mode</span>
+    </button>
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+      aria-controls="site-navigation"
+      title="Navigation menu"
+    >
+      <Menu class="menu-icon menu-icon-open" size={22} aria-hidden="true" />
+      <X class="menu-icon menu-icon-close" size={22} aria-hidden="true" />
+    </button>
+  </div>
+</header>
+
+<script>
+  const themeToggle = document.querySelector(".theme-toggle");
+  const themeLabel = themeToggle?.querySelector(".theme-label");
+  const savedTheme = localStorage.getItem("portfolio-theme");
+
+  const syncThemeControl = () => {
+    const isDark = document.documentElement.dataset.theme === "dark";
+    themeToggle?.setAttribute("aria-pressed", isDark ? "true" : "false");
+    themeToggle?.setAttribute(
+      "aria-label",
+      isDark ? "Switch to light mode" : "Switch to dark mode"
+    );
+    if (themeLabel) themeLabel.textContent = isDark ? "Light Mode" : "Dark Mode";
+  };
+
+  if (savedTheme === "dark") {
+    document.documentElement.dataset.theme = "dark";
+  }
+  syncThemeControl();
+
+  themeToggle?.addEventListener("click", () => {
+    const isDark = document.documentElement.dataset.theme === "dark";
+    document.documentElement.dataset.theme = isDark ? "" : "dark";
+    localStorage.setItem("portfolio-theme", isDark ? "light" : "dark");
+    syncThemeControl();
+  });
+
+  const menuToggle = document.querySelector(".menu-toggle");
+  const siteNav = document.querySelector(".site-nav");
+  const siteHeader = document.querySelector(".site-header");
+
+  const closeMenu = () => {
+    siteNav?.classList.remove("is-open");
+    menuToggle?.setAttribute("aria-expanded", "false");
+    menuToggle?.setAttribute("aria-label", "Open navigation menu");
+  };
+
+  menuToggle?.addEventListener("click", () => {
+    const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+    siteNav?.classList.toggle("is-open", !isOpen);
+    menuToggle.setAttribute("aria-expanded", isOpen ? "false" : "true");
+    menuToggle.setAttribute(
+      "aria-label",
+      isOpen ? "Open navigation menu" : "Close navigation menu"
+    );
+  });
+
+  siteNav?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", closeMenu);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeMenu();
+  });
+
+  document.addEventListener("click", (event) => {
+    if (event.target instanceof Node && !siteHeader?.contains(event.target)) {
+      closeMenu();
+    }
+  });
+
+  window.matchMedia("(min-width: 681px)").addEventListener("change", closeMenu);
+</script>

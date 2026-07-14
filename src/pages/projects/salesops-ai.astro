@@ -1,5 +1,6 @@
 ---
 import "../../styles/global.css";
+import SiteHeader from "../../components/SiteHeader.astro";
 
 const stack = [
   "Next.js",
@@ -67,21 +68,7 @@ const proof = [
     <title>SalesOps AI Case Study | Muhammad Irham Rizq</title>
   </head>
   <body>
-    <header class="site-header">
-      <a class="brand" href="/" aria-label="Back to portfolio">
-        <img src="/assets/kuronashiro-avatar.png" alt="" />
-        <span>Irham Rizq</span>
-      </a>
-      <nav aria-label="Case study navigation">
-        <a href="/">Home</a>
-        <a href="#architecture">Architecture</a>
-        <a href="#proof">Proof</a>
-        <a href="https://github.com/Kuronashiro/salesops-ai">GitHub</a>
-        <button class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
-          Dark Mode
-        </button>
-      </nav>
-    </header>
+    <SiteHeader caseStudy />
 
     <main>
       <section class="case-hero">
@@ -224,23 +211,5 @@ const proof = [
         <a href="/files/cv-muhammad-irham-rizq-2025.pdf">CV</a>
       </div>
     </footer>
-    <script>
-      const themeToggle = document.querySelector(".theme-toggle");
-      const savedTheme = localStorage.getItem("portfolio-theme");
-
-      if (savedTheme === "dark") {
-        document.documentElement.dataset.theme = "dark";
-        themeToggle?.setAttribute("aria-pressed", "true");
-        if (themeToggle) themeToggle.textContent = "Light Mode";
-      }
-
-      themeToggle?.addEventListener("click", () => {
-        const isDark = document.documentElement.dataset.theme === "dark";
-        document.documentElement.dataset.theme = isDark ? "" : "dark";
-        localStorage.setItem("portfolio-theme", isDark ? "light" : "dark");
-        themeToggle.setAttribute("aria-pressed", isDark ? "false" : "true");
-        themeToggle.textContent = isDark ? "Dark Mode" : "Light Mode";
-      });
-    </script>
   </body>
 </html>
