@@ -5,7 +5,7 @@ styled around the Kuronashiro Hobby visual identity.
 
 ## Live Website
 
-https://muhammad-irham-rizq-portoweb.vercel.app
+https://muhammadirhamrizq-portoweb.vercel.app
 
 ## Tech Stack
 
