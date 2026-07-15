@@ -87,6 +87,14 @@ import { ChevronDown, Disc3, Pause, Play, Volume2, VolumeX } from "@lucide/astro
 </aside>
 
 <script>
+  type MusicLocale = "id" | "en" | "zh";
+  type PortfolioWindow = Window & {
+    portfolioLocale?: MusicLocale;
+    portfolioTranslate?: (source: string) => string;
+  };
+
+  const portfolioWindow = window as PortfolioWindow;
+  const t = (source: string) => portfolioWindow.portfolioTranslate?.(source) ?? source;
   const musicPlayers = document.querySelectorAll<HTMLElement>("[data-music-player]");
 
   musicPlayers.forEach((player) => {
@@ -131,17 +139,17 @@ import { ChevronDown, Disc3, Pause, Play, Volume2, VolumeX } from "@lucide/astro
       const isMuted = audio.muted || audio.volume === 0;
       player.dataset.muted = String(isMuted);
       muteToggle.setAttribute("aria-pressed", String(isMuted));
-      muteToggle.setAttribute("aria-label", isMuted ? "Unmute background music" : "Mute background music");
-      muteToggle.setAttribute("title", isMuted ? "Unmute background music" : "Mute background music");
+      muteToggle.setAttribute("aria-label", t(isMuted ? "Unmute background music" : "Mute background music"));
+      muteToggle.setAttribute("title", t(isMuted ? "Unmute background music" : "Mute background music"));
     };
 
     const syncPlayback = () => {
       const isPlaying = !audio.paused;
       player.dataset.playing = String(isPlaying);
       playToggle.setAttribute("aria-pressed", String(isPlaying));
-      playToggle.setAttribute("aria-label", isPlaying ? "Pause background music" : "Play background music");
-      playToggle.setAttribute("title", isPlaying ? "Pause background music" : "Play background music");
-      status.textContent = isPlaying ? "Background music playing." : "Background music paused.";
+      playToggle.setAttribute("aria-label", t(isPlaying ? "Pause background music" : "Play background music"));
+      playToggle.setAttribute("title", t(isPlaying ? "Pause background music" : "Play background music"));
+      status.textContent = t(isPlaying ? "Background music playing." : "Background music paused.");
     };
 
     const syncProgress = () => {
@@ -154,7 +162,7 @@ import { ChevronDown, Disc3, Pause, Play, Volume2, VolumeX } from "@lucide/astro
     detailsToggle.addEventListener("click", () => {
       const isExpanded = detailsToggle.getAttribute("aria-expanded") === "true";
       detailsToggle.setAttribute("aria-expanded", String(!isExpanded));
-      detailsToggle.setAttribute("title", isExpanded ? "Open music controls" : "Close music controls");
+      detailsToggle.setAttribute("title", t(isExpanded ? "Open music controls" : "Close music controls"));
       player.dataset.expanded = String(!isExpanded);
       details.hidden = isExpanded;
     });
@@ -168,7 +176,7 @@ import { ChevronDown, Disc3, Pause, Play, Volume2, VolumeX } from "@lucide/astro
       try {
         await audio.play();
       } catch {
-        status.textContent = "Music could not start. Please tap play again.";
+        status.textContent = t("Music could not start. Please tap play again.");
       }
     });
 
@@ -205,8 +213,15 @@ import { ChevronDown, Disc3, Pause, Play, Volume2, VolumeX } from "@lucide/astro
       syncProgress();
     });
     audio.addEventListener("error", () => {
-      status.textContent = "Background music is currently unavailable.";
+      status.textContent = t("Background music is currently unavailable.");
       playToggle.disabled = true;
+    });
+
+    window.addEventListener("portfolio:localechange", () => {
+      const isExpanded = detailsToggle.getAttribute("aria-expanded") === "true";
+      detailsToggle.setAttribute("title", t(isExpanded ? "Close music controls" : "Open music controls"));
+      syncPlayback();
+      syncVolume();
     });
 
     document.addEventListener("keydown", (event) => {

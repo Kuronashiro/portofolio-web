@@ -29,6 +29,11 @@ const links = caseStudy
 
   <nav class="site-nav" id="site-navigation" aria-label="Primary navigation">
     {links.map(([label, href]) => <a href={href}>{label}</a>)}
+    <div class="language-switcher" role="group" aria-label="Language">
+      <button type="button" data-language="id" aria-pressed="true">ID</button>
+      <button type="button" data-language="en" aria-pressed="false">EN</button>
+      <button type="button" data-language="zh" aria-pressed="false">CN</button>
+    </div>
   </nav>
 
   <div class="header-controls">
@@ -58,6 +63,101 @@ const links = caseStudy
 </header>
 
 <script>
+  import {
+    defaultLocale,
+    isLocale,
+    localeLanguageTags,
+    translate,
+    translations,
+    type Locale
+  } from "../i18n/translations";
+
+  type PortfolioWindow = Window & {
+    portfolioLocale?: Locale;
+    portfolioTranslate?: (source: string) => string;
+  };
+
+  type TextRecord = {
+    node: Text;
+    prefix: string;
+    source: string;
+    suffix: string;
+  };
+
+  type AttributeRecord = {
+    element: Element;
+    name: string;
+    source: string;
+  };
+
+  const portfolioWindow = window as PortfolioWindow;
+  const normalizeText = (value: string) => value.trim().replace(/\s+/g, " ");
+  const hasTranslation = (source: string) =>
+    source in translations.id || source in translations.zh;
+  const textRecords: TextRecord[] = [];
+  const attributeRecords: AttributeRecord[] = [];
+  const textWalker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+
+  let currentTextNode = textWalker.nextNode();
+  while (currentTextNode) {
+    const node = currentTextNode as Text;
+    const parent = node.parentElement;
+    const value = node.nodeValue ?? "";
+    const source = normalizeText(value);
+
+    if (
+      parent &&
+      source &&
+      !parent.closest("script, style, noscript, code, pre, [data-i18n-ignore]") &&
+      hasTranslation(source)
+    ) {
+      const parts = value.match(/^(\s*)([\s\S]*?)(\s*)$/);
+      textRecords.push({
+        node,
+        prefix: parts?.[1] ?? "",
+        source,
+        suffix: parts?.[3] ?? ""
+      });
+    }
+
+    currentTextNode = textWalker.nextNode();
+  }
+
+  const translatedAttributes = ["alt", "aria-label", "data-short", "title"];
+  document.querySelectorAll("*").forEach((element) => {
+    translatedAttributes.forEach((name) => {
+      const value = element.getAttribute(name);
+      const source = value ? normalizeText(value) : "";
+      if (source && hasTranslation(source)) {
+        attributeRecords.push({ element, name, source });
+      }
+    });
+  });
+
+  const languageButtons = document.querySelectorAll<HTMLButtonElement>("[data-language]");
+  const originalTitle = document.title;
+  const applyLocale = (locale: Locale) => {
+    portfolioWindow.portfolioLocale = locale;
+    portfolioWindow.portfolioTranslate = (source) => translate(locale, source);
+    document.documentElement.lang = localeLanguageTags[locale];
+    document.documentElement.dataset.locale = locale;
+
+    textRecords.forEach(({ node, prefix, source, suffix }) => {
+      node.nodeValue = `${prefix}${translate(locale, source)}${suffix}`;
+    });
+    attributeRecords.forEach(({ element, name, source }) => {
+      element.setAttribute(name, translate(locale, source));
+    });
+    languageButtons.forEach((button) => {
+      button.setAttribute("aria-pressed", String(button.dataset.language === locale));
+    });
+
+    document.title = translate(locale, originalTitle);
+    localStorage.setItem("portfolio-locale", locale);
+    window.dispatchEvent(new CustomEvent("portfolio:localechange", { detail: { locale } }));
+  };
+
+  const t = (source: string) => portfolioWindow.portfolioTranslate?.(source) ?? source;
   const themeToggle = document.querySelector(".theme-toggle");
   const themeLabel = themeToggle?.querySelector(".theme-label");
   const savedTheme = localStorage.getItem("portfolio-theme");
@@ -67,9 +167,9 @@ const links = caseStudy
     themeToggle?.setAttribute("aria-pressed", isDark ? "true" : "false");
     themeToggle?.setAttribute(
       "aria-label",
-      isDark ? "Switch to light mode" : "Switch to dark mode"
+      t(isDark ? "Switch to light mode" : "Switch to dark mode")
     );
-    if (themeLabel) themeLabel.textContent = isDark ? "Light Mode" : "Dark Mode";
+    if (themeLabel) themeLabel.textContent = t(isDark ? "Light Mode" : "Dark Mode");
   };
 
   if (savedTheme === "dark") {
@@ -91,7 +191,7 @@ const links = caseStudy
   const closeMenu = () => {
     siteNav?.classList.remove("is-open");
     menuToggle?.setAttribute("aria-expanded", "false");
-    menuToggle?.setAttribute("aria-label", "Open navigation menu");
+    menuToggle?.setAttribute("aria-label", t("Open navigation menu"));
   };
 
   menuToggle?.addEventListener("click", () => {
@@ -100,8 +200,19 @@ const links = caseStudy
     menuToggle.setAttribute("aria-expanded", isOpen ? "false" : "true");
     menuToggle.setAttribute(
       "aria-label",
-      isOpen ? "Open navigation menu" : "Close navigation menu"
+      t(isOpen ? "Open navigation menu" : "Close navigation menu")
     );
+  });
+
+  languageButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const locale = button.dataset.language;
+      if (isLocale(locale ?? null)) {
+        applyLocale(locale);
+        syncThemeControl();
+        closeMenu();
+      }
+    });
   });
 
   siteNav?.querySelectorAll("a").forEach((link) => {
@@ -119,4 +230,8 @@ const links = caseStudy
   });
 
   window.matchMedia("(min-width: 681px)").addEventListener("change", closeMenu);
+
+  const savedLocale = localStorage.getItem("portfolio-locale");
+  applyLocale(isLocale(savedLocale) ? savedLocale : defaultLocale);
+  syncThemeControl();
 </script>
