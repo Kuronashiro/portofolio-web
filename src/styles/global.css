@@ -1883,6 +1883,14 @@ time,
   margin-top: 26px;
 }
 
+.contact-actions .button {
+  gap: 9px;
+}
+
+.contact-button-icon {
+  flex: 0 0 auto;
+}
+
 .contact .button.secondary {
   background: rgba(255, 253, 244, 0.06);
   border-color: rgba(255, 253, 244, 0.62);

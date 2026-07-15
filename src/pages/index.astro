@@ -1,6 +1,14 @@
 ---
 import "../styles/global.css";
-import { BriefcaseBusiness, Code, FileText, Mail, MessageCircle } from "@lucide/astro";
+import {
+  BriefcaseBusiness,
+  Camera,
+  Code,
+  FileText,
+  GitFork,
+  Mail,
+  MessageCircle
+} from "@lucide/astro";
 import MusicPlayer from "../components/MusicPlayer.astro";
 import SiteHeader from "../components/SiteHeader.astro";
 
@@ -762,12 +770,30 @@ const softSkills = [
         <p class="section-kicker">Contact</p>
         <h2 id="contact-title">Let us build something useful and lively.</h2>
         <div class="contact-actions">
-          <a class="button primary" href={`mailto:${contact.email}`}>Email</a>
-          <a class="button secondary" href={contact.linkedin}>LinkedIn</a>
-          <a class="button secondary" href={contact.whatsapp}>WhatsApp</a>
-          <a class="button secondary" href={contact.instagram}>Instagram</a>
-          <a class="button secondary" href={contact.github}>GitHub</a>
-          <a class="button secondary" href={contact.gitlab}>GitLab</a>
+          <a class="button primary" href={`mailto:${contact.email}`}>
+            <Mail class="contact-button-icon" size={18} aria-hidden="true" />
+            <span>Email</span>
+          </a>
+          <a class="button secondary" href={contact.linkedin}>
+            <BriefcaseBusiness class="contact-button-icon" size={18} aria-hidden="true" />
+            <span>LinkedIn</span>
+          </a>
+          <a class="button secondary" href={contact.whatsapp}>
+            <MessageCircle class="contact-button-icon" size={18} aria-hidden="true" />
+            <span>WhatsApp</span>
+          </a>
+          <a class="button secondary" href={contact.instagram}>
+            <Camera class="contact-button-icon" size={18} aria-hidden="true" />
+            <span>Instagram</span>
+          </a>
+          <a class="button secondary" href={contact.github}>
+            <Code class="contact-button-icon" size={18} aria-hidden="true" />
+            <span>GitHub</span>
+          </a>
+          <a class="button secondary" href={contact.gitlab}>
+            <GitFork class="contact-button-icon" size={18} aria-hidden="true" />
+            <span>GitLab</span>
+          </a>
         </div>
       </section>
     </main>
