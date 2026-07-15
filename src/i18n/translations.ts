@@ -33,7 +33,7 @@ const entries = [
 
   ["Backend & DevOps Developer | Payment & Escrow Systems", "Developer Backend & DevOps | Sistem Pembayaran & Escrow", "后端与 DevOps 开发者 | 支付与托管系统"],
   ["Undergraduate Computer Science student at Bina Nusantara University (BINUS), building reliable backend systems, deployment workflows, and payment infrastructure for digital products.", "Mahasiswa S1 Ilmu Komputer di Bina Nusantara University (BINUS) yang membangun sistem backend andal, alur deployment, dan infrastruktur pembayaran untuk produk digital.", "Bina Nusantara University（BINUS）计算机科学本科生，专注于构建可靠的后端系统、部署流程和数字产品支付基础设施。"],
-  ["BINUS Computer Science student building backend systems, deployment workflows, and reliable digital products.", "Mahasiswa Ilmu Komputer BINUS yang membangun sistem backend, alur deployment, dan produk digital yang andal.", "BINUS 计算机科学学生，致力于构建后端系统、部署流程和可靠的数字产品。"],
+  ["Undergraduate Computer Science student at Bina Nusantara University (BINUS), focused on building reliable backend systems and deployment workflows.", "Mahasiswa S1 Ilmu Komputer di Bina Nusantara University (BINUS) yang berfokus membangun sistem backend andal dan alur deployment.", "Bina Nusantara University（BINUS）计算机科学本科生，专注于构建可靠的后端系统和部署流程。"],
   ["Backend Engineering", "Rekayasa Backend", "后端工程"],
   ["DevOps & Deployment", "DevOps & Deployment", "DevOps 与部署"],
   ["Payment Infrastructure", "Infrastruktur Pembayaran", "支付基础设施"],
