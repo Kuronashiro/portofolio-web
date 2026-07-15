@@ -42,7 +42,9 @@
 }
 
 html {
+  -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
+  text-size-adjust: 100%;
 }
 
 :root[data-locale="zh"] body {
@@ -2064,7 +2066,7 @@ time,
 
   .hero {
     min-height: 100svh;
-    padding: 106px 20px calc(34px + env(safe-area-inset-bottom));
+    padding: 102px 24px calc(32px + env(safe-area-inset-bottom));
   }
 
   .hero-shade {
@@ -2074,29 +2076,33 @@ time,
   }
 
   h1 {
-    font-size: clamp(2.7rem, 12vw, 3.35rem);
-    line-height: 0.98;
-    margin-bottom: 20px;
+    font-size: clamp(2.4rem, 10.5vw, 3rem);
+    line-height: 1;
+    margin-bottom: 18px;
     white-space: normal;
   }
 
   h2 {
-    font-size: clamp(1.9rem, 9vw, 2.7rem);
-    line-height: 1.05;
+    font-size: clamp(1.75rem, 7.6vw, 2.25rem);
+    line-height: 1.08;
+  }
+
+  h3 {
+    font-size: 1.12rem;
   }
 
   .hero-role {
-    font-size: 0.98rem;
+    font-size: 0.9rem;
     line-height: 1.4;
-    margin: 0 auto 18px;
-    max-width: 340px;
+    margin: 0 auto 16px;
+    max-width: 320px;
   }
 
   .hero-copy {
-    font-size: 1rem;
+    font-size: 0.94rem;
     line-height: 1.55;
     margin-bottom: 0;
-    max-width: 32ch;
+    max-width: 31ch;
   }
 
   .hero-copy-desktop,
@@ -2172,19 +2178,125 @@ time,
   .snapshots,
   .tech-stack-wall,
   .case-detail-grid {
-    padding-bottom: 68px;
-    padding-top: 68px;
+    padding: 60px 24px;
   }
 
   .architecture {
-    padding-bottom: 68px;
-    padding-top: 32px;
+    padding: 30px 24px 60px;
   }
 
   .case-hero {
     min-height: auto;
-    padding-bottom: 68px;
-    padding-top: 108px;
+    padding: 102px 24px 60px;
+  }
+
+  .section-grid > :first-child,
+  .section-heading,
+  .case-copy,
+  .contact {
+    text-align: center;
+  }
+
+  .section-heading {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .intro-copy > p {
+    font-size: 0.98rem;
+    line-height: 1.65;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 56ch;
+    text-align: center;
+  }
+
+  .case-actions,
+  .contact-actions,
+  .project-filters {
+    justify-content: center;
+  }
+
+  .section-kicker {
+    font-size: 0.7rem;
+  }
+
+  .intro-copy,
+  .education-card {
+    font-size: 0.96rem;
+  }
+
+  .experience-item,
+  .project-card,
+  .education-card,
+  .info-grid article,
+  .case-copy,
+  .case-panel,
+  .case-detail-grid article,
+  .stack-groups article,
+  .snapshot-grid article,
+  .architecture-node {
+    padding: 18px;
+  }
+
+  .experience-item,
+  .project-card,
+  .info-grid article,
+  .case-panel,
+  .stack-groups article,
+  .snapshot-grid article,
+  .architecture-node {
+    font-size: 0.94rem;
+  }
+
+  .architecture-node,
+  .snapshot-grid article {
+    min-height: 0;
+  }
+
+  .project-preview {
+    height: 106px;
+    margin-bottom: 16px;
+  }
+
+  .project-grid,
+  .stack-groups,
+  .snapshot-grid,
+  .architecture-flow,
+  .info-grid {
+    gap: 14px;
+    margin-top: 26px;
+  }
+
+  .skill-cloud span {
+    font-size: 0.86rem;
+    padding: 8px 10px;
+  }
+
+  .stack-badges {
+    gap: 7px;
+  }
+
+  .stack-badges span {
+    font-size: 0.72rem;
+    padding: 8px 9px;
+  }
+
+  .project-filters {
+    gap: 8px;
+    margin-top: 22px;
+  }
+
+  .project-filters button {
+    font-size: 0.8rem;
+    min-height: 38px;
+    padding: 7px 10px;
+  }
+
+  .code-note {
+    font-size: 0.74rem;
+    margin-top: 22px;
+    padding: 16px;
   }
 
   .stats-band,
@@ -2194,6 +2306,26 @@ time,
   .architecture-flow,
   .snapshot-grid {
     grid-template-columns: 1fr;
+  }
+
+  .stats-band div {
+    border-bottom: 1px solid rgba(255, 253, 244, 0.16);
+    border-right: 0;
+    min-height: 118px;
+    padding: 26px 24px;
+    text-align: center;
+  }
+
+  .stats-band div:last-child {
+    border-bottom: 0;
+  }
+
+  .stats-band strong {
+    font-size: 2.35rem;
+  }
+
+  .stats-band span {
+    font-size: 0.9rem;
   }
 
   .dashboard-shell {

@@ -192,7 +192,7 @@ const entries = [
   ["Kuronashiro Hobby on OLX", "Kuronashiro Hobby di OLX", "OLX 上的 Kuronashiro Hobby"],
   ["Kuronashiro Hobby on Carousell", "Kuronashiro Hobby di Carousell", "Carousell 上的 Kuronashiro Hobby"],
   ["Kuronashiro Hobby on Shopee", "Kuronashiro Hobby di Shopee", "Shopee 上的 Kuronashiro Hobby"],
-  ["Achieved turnover of more than IDR 100,000,000", "Mencapai omzet lebih dari Rp100.000.000", "营业额超过1亿印尼盾"],
+  ["Achieved turnover of more than IDR 450,000,000", "Mencapai omzet lebih dari Rp450.000.000", "营业额超过4.5亿印尼盾"],
 
   ["Technical Projects", "Proyek Teknis", "技术项目"],
   ["Coursework and production-style builds from the CV.", "Proyek perkuliahan dan implementasi bergaya production dari CV.", "简历中的课程项目与生产级构建。"],
