@@ -30,9 +30,9 @@ const links = caseStudy
   <nav class="site-nav" id="site-navigation" aria-label="Primary navigation">
     {links.map(([label, href]) => <a href={href}>{label}</a>)}
     <div class="language-switcher" role="group" aria-label="Language">
-      <button type="button" data-language="id" aria-pressed="true">ID</button>
-      <button type="button" data-language="en" aria-pressed="false">EN</button>
+      <button type="button" data-language="en" aria-pressed="true">EN</button>
       <button type="button" data-language="zh" aria-pressed="false">CN</button>
+      <button type="button" data-language="id" aria-pressed="false">ID</button>
     </div>
   </nav>
 
@@ -154,6 +154,7 @@ const links = caseStudy
 
     document.title = translate(locale, originalTitle);
     localStorage.setItem("portfolio-locale", locale);
+    localStorage.setItem("portfolio-locale-version", "2");
     window.dispatchEvent(new CustomEvent("portfolio:localechange", { detail: { locale } }));
   };
 
@@ -232,6 +233,7 @@ const links = caseStudy
   window.matchMedia("(min-width: 681px)").addEventListener("change", closeMenu);
 
   const savedLocale = localStorage.getItem("portfolio-locale");
-  applyLocale(isLocale(savedLocale) ? savedLocale : defaultLocale);
+  const hasCurrentLocalePreference = localStorage.getItem("portfolio-locale-version") === "2";
+  applyLocale(hasCurrentLocalePreference && isLocale(savedLocale) ? savedLocale : defaultLocale);
   syncThemeControl();
 </script>

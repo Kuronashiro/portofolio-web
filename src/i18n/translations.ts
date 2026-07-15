@@ -1,13 +1,13 @@
 export type Locale = "id" | "en" | "zh";
 
-export const defaultLocale: Locale = "id";
+export const defaultLocale: Locale = "en";
 export const localeLanguageTags: Record<Locale, string> = {
   id: "id",
   en: "en",
   zh: "zh-CN"
 };
 
-export const supportedLocales: Locale[] = ["id", "en", "zh"];
+export const supportedLocales: Locale[] = ["en", "zh", "id"];
 
 const entries = [
   ["Home", "Beranda", "首页"],
