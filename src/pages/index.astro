@@ -4,6 +4,7 @@ import {
   BriefcaseBusiness,
   Camera,
   Code,
+  ExternalLink,
   FileText,
   GitFork,
   Mail,
@@ -370,10 +371,41 @@ const projectFilters = [
 ];
 
 const certificates = [
-  "Introduction to Python by Sololearn 2024",
-  "Fundamental Front-End Web Development by Coding Studio 2024",
-  "Introduction to C Programming by Sololearn 2023",
-  "C Programming Course by Dicoding Academy 2023"
+  {
+    title: "Introduction to Financial Literacy",
+    issuer: "Dicoding Academy",
+    year: "2025",
+    image: "/assets/certificates/introduction-to-financial-literacy.jpg",
+    file: "/files/certificates/introduction-to-financial-literacy.pdf"
+  },
+  {
+    title: "Fundamental Front-End Web Development",
+    issuer: "Coding Studio",
+    year: "2024",
+    image: "/assets/certificates/fundamental-front-end-web-development.jpg",
+    file: "/files/certificates/fundamental-front-end-web-development.pdf"
+  },
+  {
+    title: "Introduction to Python",
+    issuer: "Sololearn",
+    year: "2024",
+    image: "/assets/certificates/introduction-to-python.jpg",
+    file: "/files/certificates/introduction-to-python.pdf"
+  },
+  {
+    title: "Introduction to C",
+    issuer: "Sololearn",
+    year: "2023",
+    image: "/assets/certificates/introduction-to-c.jpg",
+    file: "/files/certificates/introduction-to-c.pdf"
+  },
+  {
+    title: "Programming with C",
+    issuer: "Dicoding Academy",
+    year: "2023",
+    image: "/assets/certificates/programming-with-c.jpg",
+    file: "/files/certificates/programming-with-c.pdf"
+  }
 ];
 
 const hardSkills = [
@@ -740,11 +772,40 @@ const softSkills = [
           <h2 id="skills-title">Certificates, skills, and languages.</h2>
         </div>
         <div class="info-grid">
-          <article>
-            <h3>E-Certificates / Awards</h3>
-            <ul class="detail-list">
-              {certificates.map((certificate) => <li>{certificate}</li>)}
-            </ul>
+          <article class="certificates-panel">
+            <h3>Certificates / Awards</h3>
+            <div class="certificate-grid">
+              {
+                certificates.map((certificate) => (
+                  <a
+                    class="certificate-card"
+                    href={certificate.file}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`Open ${certificate.title} certificate`}
+                  >
+                    <img
+                      class="certificate-thumbnail"
+                      src={certificate.image}
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <div class="certificate-content">
+                      <div class="certificate-title-row">
+                        <h4>{certificate.title}</h4>
+                        <ExternalLink size={17} aria-hidden="true" />
+                      </div>
+                      <div class="certificate-meta">
+                        <strong>{certificate.issuer}</strong>
+                        <time>{certificate.year}</time>
+                      </div>
+                      <span class="certificate-open">View certificate</span>
+                    </div>
+                  </a>
+                ))
+              }
+            </div>
           </article>
           <article>
             <h3>Hard Skills</h3>
