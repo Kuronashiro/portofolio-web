@@ -2105,6 +2105,15 @@ time,
     width: 34px;
   }
 
+  .brand {
+    gap: 7px;
+    min-width: 0;
+  }
+
+  .brand span {
+    font-size: 0.82rem;
+  }
+
   .site-nav {
     align-items: stretch;
     background: var(--paper);
