@@ -1,5 +1,7 @@
 import { defineConfig } from "astro/config";
+import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
-  site: "https://irhamrizq.dev"
+  site: "https://muhammadirhamrizq-portoweb.vercel.app",
+  integrations: [sitemap()]
 });

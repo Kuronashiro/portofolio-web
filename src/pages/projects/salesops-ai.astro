@@ -1,8 +1,42 @@
 ---
 import "../../styles/global.css";
 import MusicPlayer from "../../components/MusicPlayer.astro";
+import SeoHead from "../../components/SeoHead.astro";
 import SiteHeader from "../../components/SiteHeader.astro";
 import ThemeInit from "../../components/ThemeInit.astro";
+import VercelInsights from "../../components/VercelInsights.astro";
+
+const caseStudyUrl = "https://muhammadirhamrizq-portoweb.vercel.app/projects/salesops-ai/";
+const caseStudyDescription =
+  "SalesOps AI case study by Muhammad Irham Rizq: Next.js, NestJS, PostgreSQL, FastAPI, Docker, Nginx, Prometheus, Grafana, AI detection, and deployment workflow.";
+const caseStudySchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "@id": `${caseStudyUrl}#article`,
+      url: caseStudyUrl,
+      headline: "SalesOps AI Case Study",
+      description: caseStudyDescription,
+      image: "https://muhammadirhamrizq-portoweb.vercel.app/assets/kuronashiro-header.jpg",
+      author: {
+        "@type": "Person",
+        "@id": "https://muhammadirhamrizq-portoweb.vercel.app/#person",
+        name: "Muhammad Irham Rizq"
+      },
+      about: { "@id": `${caseStudyUrl}#software` }
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": `${caseStudyUrl}#software`,
+      name: "SalesOps AI",
+      description: caseStudyDescription,
+      codeRepository: "https://github.com/Kuronashiro/salesops-ai",
+      programmingLanguage: ["TypeScript", "Python", "SQL"],
+      runtimePlatform: ["Docker", "Node.js", "FastAPI", "PostgreSQL"]
+    }
+  ]
+};
 
 const stack = [
   "Next.js",
@@ -55,20 +89,16 @@ const proof = [
     <ThemeInit />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="SalesOps AI case study by Muhammad Irham Rizq: Next.js, NestJS, PostgreSQL, FastAPI, Docker, Nginx, Prometheus, Grafana, AI detection, and deployment workflow."
+    <SeoHead
+      title="SalesOps AI Case Study | Muhammad Irham Rizq"
+      description={caseStudyDescription}
+      path="/projects/salesops-ai/"
+      type="article"
+      imageAlt="SalesOps AI case study by Muhammad Irham Rizq"
+      schema={caseStudySchema}
     />
     <meta name="theme-color" content="#0d1117" />
-    <meta property="og:title" content="SalesOps AI Case Study | Muhammad Irham Rizq" />
-    <meta
-      property="og:description"
-      content="A local production-style SalesOps platform with dashboard, backend API, AI inference, PostgreSQL, Docker, Nginx, Prometheus, and Grafana."
-    />
-    <meta property="og:image" content="/assets/kuronashiro-header.jpg" />
-    <meta property="og:type" content="article" />
-    <link rel="icon" href="/assets/kuronashiro-avatar.png" />
-    <title>SalesOps AI Case Study | Muhammad Irham Rizq</title>
+    <VercelInsights />
   </head>
   <body>
     <SiteHeader caseStudy />

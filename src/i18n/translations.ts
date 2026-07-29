@@ -59,10 +59,10 @@ const entries = [
   ["Learning HTML, CSS, JavaScript, C, Python, MySQL, Java, Kotlin, NestJS, and Next.js.", "Mempelajari HTML, CSS, JavaScript, C, Python, MySQL, Java, Kotlin, NestJS, dan Next.js.", "学习 HTML、CSS、JavaScript、C、Python、MySQL、Java、Kotlin、NestJS 和 Next.js。"],
   ["Active in HIMTI and Vice Chairman in BINUSIAN GAMING Bandung.", "Aktif di HIMTI dan menjabat sebagai Wakil Ketua BINUSIAN GAMING Bandung.", "积极参与 HIMTI，并担任 BINUSIAN GAMING Bandung 副主席。"],
 
-  ["technical projects", "proyek teknis", "技术项目"],
-  ["online store turnover", "omzet toko online", "网店营业额"],
-  ["HIMTI participants led", "peserta HIMTI yang dipimpin", "带领的 HIMTI 参与者"],
-  ["highest project grade", "nilai proyek tertinggi", "项目最高成绩"],
+  ["projects across coursework and independent builds", "proyek perkuliahan dan pengembangan mandiri", "课程项目与独立开发项目"],
+  ["cumulative marketplace turnover since 2018", "omzet marketplace kumulatif sejak 2018", "自2018年以来的累计电商营业额"],
+  ["participants across HIMTI activities", "peserta dalam kegiatan HIMTI", "HIMTI 活动参与者"],
+  ["highest academic project grade", "nilai proyek akademik tertinggi", "学术项目最高成绩"],
   ["Portfolio highlights", "Sorotan portfolio", "作品集亮点"],
 
   ["Featured Case Study", "Studi Kasus Unggulan", "精选案例"],

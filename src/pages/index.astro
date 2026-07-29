@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import {
+  ArrowRight,
   BriefcaseBusiness,
   Camera,
   Code,
@@ -11,8 +12,10 @@ import {
   MessageCircle
 } from "@lucide/astro";
 import MusicPlayer from "../components/MusicPlayer.astro";
+import SeoHead from "../components/SeoHead.astro";
 import SiteHeader from "../components/SiteHeader.astro";
 import ThemeInit from "../components/ThemeInit.astro";
+import VercelInsights from "../components/VercelInsights.astro";
 
 const contact = {
   email: "Hamrizqyt@gmail.com",
@@ -28,6 +31,43 @@ const contact = {
   cv: "/files/cv-muhammad-irham-rizq-2025.pdf"
 };
 
+const portfolioUrl = "https://muhammadirhamrizq-portoweb.vercel.app";
+const portfolioDescription =
+  "Muhammad Irham Rizq portfolio - Backend and DevOps developer, BINUS Computer Science student, building reliable backend systems, deployment workflows, payment infrastructure, and SalesOps AI.";
+const profileSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "@id": `${portfolioUrl}/#profile`,
+  url: portfolioUrl,
+  name: "Muhammad Irham Rizq | Backend & DevOps Portfolio",
+  mainEntity: {
+    "@type": "Person",
+    "@id": `${portfolioUrl}/#person`,
+    name: "Muhammad Irham Rizq",
+    alternateName: "Kuronashiro",
+    url: portfolioUrl,
+    image: `${portfolioUrl}/assets/kuronashiro-avatar.webp`,
+    jobTitle: "Backend & DevOps Developer",
+    description: portfolioDescription,
+    affiliation: {
+      "@type": "CollegeOrUniversity",
+      name: "Bina Nusantara University",
+      sameAs: "https://binus.ac.id/"
+    },
+    sameAs: [contact.linkedin, contact.github, contact.gitlab, contact.instagram],
+    knowsAbout: [
+      "Backend engineering",
+      "DevOps",
+      "Payment infrastructure",
+      "System reliability",
+      "Next.js",
+      "NestJS",
+      "PostgreSQL",
+      "Docker"
+    ]
+  }
+};
+
 const roles = [
   { label: "Backend Engineering", short: "Backend" },
   { label: "DevOps & Deployment", short: "DevOps" },
@@ -36,10 +76,26 @@ const roles = [
 ];
 
 const stats = [
-  ["25+", "technical projects"],
-  ["IDR 450M+", "online store turnover"],
-  ["1500+", "HIMTI participants led"],
-  ["100 / A+", "highest project grade"]
+  {
+    value: "25+",
+    label: "projects across coursework and independent builds",
+    href: "#projects"
+  },
+  {
+    value: "IDR 450M+",
+    label: "cumulative marketplace turnover since 2018",
+    href: "#experience"
+  },
+  {
+    value: "1500+",
+    label: "participants across HIMTI activities",
+    href: "#experience"
+  },
+  {
+    value: "100 / A+",
+    label: "highest academic project grade",
+    href: "#projects"
+  }
 ];
 
 const featuredCase = {
@@ -445,28 +501,30 @@ const softSkills = [
     <ThemeInit />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Muhammad Irham Rizq portfolio - Backend and DevOps developer, BINUS Computer Science student, building reliable backend systems, deployment workflows, payment infrastructure, and SalesOps AI."
+    <SeoHead
+      title="Muhammad Irham Rizq | Portfolio"
+      description={portfolioDescription}
+      path="/"
+      schema={profileSchema}
     />
     <meta name="theme-color" content="#0d1117" />
-    <meta property="og:title" content="Muhammad Irham Rizq | Backend & DevOps Portfolio" />
-    <meta
-      property="og:description"
-      content="Portfolio of Muhammad Irham Rizq: backend engineering, DevOps, SalesOps AI, payment infrastructure, community leadership, and technical projects."
-    />
-    <meta property="og:image" content="/assets/kuronashiro-header.jpg" />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <link rel="icon" href="/assets/kuronashiro-avatar.png" />
-    <title>Muhammad Irham Rizq | Portfolio</title>
+    <link rel="preload" as="image" href="/assets/kuronashiro-header.jpg" fetchpriority="high" />
+    <VercelInsights />
   </head>
   <body>
     <SiteHeader />
 
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
-        <img class="hero-bg" src="/assets/kuronashiro-header.jpg" alt="" />
+        <img
+          class="hero-bg"
+          src="/assets/kuronashiro-header.jpg"
+          alt=""
+          width="1920"
+          height="1080"
+          decoding="async"
+          fetchpriority="high"
+        />
         <div class="hero-shade"></div>
         <div class="hero-content">
           <h1 id="hero-title">Muhammad Irham Rizq</h1>
@@ -573,11 +631,12 @@ const softSkills = [
       </section>
 
       <section class="stats-band reveal" aria-label="Portfolio highlights">
-        {stats.map(([value, label]) => (
-          <div>
-            <strong>{value}</strong>
-            <span>{label}</span>
-          </div>
+        {stats.map((stat) => (
+          <a class="stat-item" href={stat.href}>
+            <strong>{stat.value}</strong>
+            <span>{stat.label}</span>
+            <ArrowRight class="stat-arrow" size={20} aria-hidden="true" />
+          </a>
         ))}
       </section>
 
@@ -790,6 +849,8 @@ const softSkills = [
                       class="certificate-thumbnail"
                       src={certificate.image}
                       alt=""
+                      width="720"
+                      height="509"
                       loading="lazy"
                       decoding="async"
                     />
