@@ -830,7 +830,7 @@ time,
   display: grid;
   gap: 22px;
   grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
-  padding-top: 80px;
+  padding-top: 48px;
 }
 
 .case-hero {
@@ -2339,10 +2339,6 @@ time,
 
   .architecture {
     padding: 30px 24px 60px;
-  }
-
-  .case-study {
-    padding-top: 72px;
   }
 
   .case-hero {
