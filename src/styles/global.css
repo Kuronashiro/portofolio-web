@@ -1245,6 +1245,13 @@ time,
   max-width: 780px;
 }
 
+.snapshots > .section-heading,
+.architecture > .section-heading,
+.tech-stack-wall > .section-heading {
+  margin-inline: auto;
+  text-align: center;
+}
+
 .project-grid {
   display: grid;
   gap: 18px;
