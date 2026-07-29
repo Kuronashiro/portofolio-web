@@ -596,6 +596,7 @@ h3 {
   min-height: 210px;
   padding: 18px;
   position: relative;
+  text-align: center;
   z-index: 1;
 }
 
@@ -605,9 +606,10 @@ h3 {
   border-radius: 50%;
   content: "";
   height: 14px;
-  left: 18px;
+  left: 50%;
   position: absolute;
   top: -9px;
+  transform: translateX(-50%);
   width: 14px;
 }
 
@@ -1122,6 +1124,7 @@ time,
   overflow: hidden;
   padding: 22px;
   position: relative;
+  text-align: center;
 }
 
 .snapshot-grid article::after {
@@ -1167,6 +1170,7 @@ time,
   border-radius: 8px;
   box-shadow: 8px 8px 0 rgba(130, 86, 168, 0.12);
   padding: 22px;
+  text-align: center;
 }
 
 .stack-groups h3 {
@@ -1177,6 +1181,7 @@ time,
   display: flex;
   flex-wrap: wrap;
   gap: 9px;
+  justify-content: center;
 }
 
 .stack-badges span {
