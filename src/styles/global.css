@@ -1185,58 +1185,31 @@ time,
 }
 
 .stack-badges span {
-  background: #101820;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: #21262d;
+  border: 1px solid #3d444d;
   border-radius: 4px;
-  color: #fffdf4;
+  color: #f0f6fc;
   font-size: 0.78rem;
   font-weight: 950;
   line-height: 1;
   padding: 9px 11px;
   text-transform: uppercase;
   transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
     box-shadow 160ms ease,
     transform 160ms ease;
 }
 
 .stack-badges span:hover {
+  background: #30363d;
+  border-color: var(--water);
   box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.18);
   transform: translateY(-2px);
 }
 
 .stack-badges.wide {
   margin-top: 28px;
-}
-
-.stack-badges span[data-stack*="github"],
-.stack-badges span[data-stack="xendit"],
-.stack-badges span[data-stack="postgresql"],
-.stack-badges span[data-stack="typescript"],
-.stack-badges span[data-stack="react"],
-.stack-badges span[data-stack="docker"],
-.stack-badges span[data-stack="monitoring"] {
-  background: var(--blue);
-}
-
-.stack-badges span[data-stack="nestjs"],
-.stack-badges span[data-stack="laravel"],
-.stack-badges span[data-stack="security"] {
-  background: var(--apple);
-}
-
-.stack-badges span[data-stack="nodejs"],
-.stack-badges span[data-stack="mongodb"],
-.stack-badges span[data-stack="supabase"],
-.stack-badges span[data-stack="nginx"],
-.stack-badges span[data-stack="escrow-flow"] {
-  background: var(--leaf);
-}
-
-.stack-badges span[data-stack="javascript"],
-.stack-badges span[data-stack="linux"],
-.stack-badges span[data-stack="firebase"] {
-  background: #d29922;
-  color: #101820;
 }
 
 .tag-row span,
