@@ -5,11 +5,15 @@ import {
   BriefcaseBusiness,
   Camera,
   Code,
+  Database,
   ExternalLink,
   FileText,
   GitFork,
   Mail,
-  MessageCircle
+  MessageCircle,
+  PanelsTopLeft,
+  ServerCog,
+  ShieldCheck
 } from "@lucide/astro";
 import MusicPlayer from "../components/MusicPlayer.astro";
 import SeoHead from "../components/SeoHead.astro";
@@ -185,26 +189,45 @@ const demoSnapshots = [
 
 const techStackGroups = [
   {
+    icon: ServerCog,
     title: "DevOps & Infrastructure",
     items: ["Git", "GitHub", "GitHub Actions", "Docker", "Linux", "Google Cloud", "Vercel", "Nginx", "Postman"]
   },
   {
+    icon: Code,
     title: "Back End",
     items: ["Node.js", "Express", "NestJS", "TypeScript", "JavaScript", "Python", "FastAPI", "PHP", "Laravel"]
   },
   {
+    icon: Database,
     title: "Database & Services",
     items: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "Prisma", "Supabase", "Firebase"]
   },
   {
+    icon: PanelsTopLeft,
     title: "Front End",
     items: ["HTML5", "CSS3", "React", "Next.js", "Tailwind CSS", "Vite", "Astro"]
   },
   {
+    icon: ShieldCheck,
     title: "Payment & Reliability",
     items: ["Xendit", "Webhooks", "Escrow Flow", "Transaction Logs", "Monitoring", "Security"]
   }
 ];
+
+const featuredStack = new Set([
+  "GitHub Actions",
+  "Docker",
+  "Nginx",
+  "NestJS",
+  "TypeScript",
+  "Python",
+  "FastAPI",
+  "PostgreSQL",
+  "Prisma",
+  "Next.js",
+  "Monitoring"
+]);
 
 const experiences = [
   {
@@ -743,20 +766,37 @@ const softSkills = [
         <div class="section-heading">
           <p class="section-kicker">Tech Stack</p>
           <h2 id="stack-title">A GitHub-style wall of tools I work with.</h2>
+          <div class="stack-legend">
+            <span aria-hidden="true"></span>
+            <p>Used in SalesOps AI</p>
+          </div>
         </div>
         <div class="stack-groups">
-          {techStackGroups.map((group) => (
-            <article>
-              <h3>{group.title}</h3>
-              <div class="stack-badges">
-                {group.items.map((item) => (
-                  <span data-stack={item.toLowerCase().replaceAll(" ", "-").replaceAll(".", "")}>
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </article>
-          ))}
+          {techStackGroups.map((group) => {
+            const GroupIcon = group.icon;
+            return (
+              <article>
+                <h3 class="stack-group-title">
+                  <GroupIcon size={20} stroke-width={2.2} aria-hidden="true" />
+                  <span>{group.title}</span>
+                </h3>
+                <div class="stack-badges">
+                  {group.items.map((item) => {
+                    const isFeatured = featuredStack.has(item);
+                    return (
+                      <span
+                        class:list={{ "is-featured": isFeatured }}
+                        data-stack={item.toLowerCase().replaceAll(" ", "-").replaceAll(".", "")}
+                        title={isFeatured ? "Used in the SalesOps AI featured case study" : undefined}
+                      >
+                        {item}
+                      </span>
+                    );
+                  })}
+                </div>
+              </article>
+            );
+          })}
         </div>
       </section>
 

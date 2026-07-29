@@ -123,6 +123,8 @@ const entries = [
 
   ["Tech Stack", "Tech Stack", "技术栈"],
   ["A GitHub-style wall of tools I work with.", "Kumpulan tools bergaya GitHub yang saya gunakan.", "我使用的 GitHub 风格工具墙。"],
+  ["Used in SalesOps AI", "Digunakan di SalesOps AI", "用于 SalesOps AI"],
+  ["Used in the SalesOps AI featured case study", "Digunakan dalam studi kasus unggulan SalesOps AI", "用于 SalesOps AI 精选案例"],
   ["DevOps & Infrastructure", "DevOps & Infrastruktur", "DevOps 与基础设施"],
   ["Back End", "Backend", "后端"],
   ["Database & Services", "Database & Layanan", "数据库与服务"],
