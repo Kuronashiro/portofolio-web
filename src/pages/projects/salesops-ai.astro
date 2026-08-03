@@ -64,15 +64,60 @@ const features = [
   "Final docs covering deployment, security, E2E testing, performance, AI detection, and demo readiness."
 ];
 
-const architecture = [
-  ["Browser", "Uses the dashboard over HTTPS"],
-  ["Nginx", "Routes dashboard, API, AI, and Grafana"],
-  ["Next.js", "Renders dashboard and admin screens"],
-  ["NestJS API", "Handles auth, analytics, transactions, audit logs"],
-  ["PostgreSQL", "Stores real transaction data"],
-  ["FastAPI AI", "Predicts category labels"],
-  ["Prometheus", "Scrapes API and AI metrics"],
-  ["Grafana", "Visualizes health and metrics"]
+const architectureSteps = [
+  {
+    name: "Next.js Dashboard",
+    type: "Frontend",
+    detail: "Admin views, KPI charts, transactions, AI prediction UI"
+  },
+  {
+    name: "NestJS API",
+    type: "Backend",
+    detail: "JWT auth, RBAC, analytics, audit logs, CSV import/export"
+  },
+  {
+    name: "PostgreSQL",
+    type: "Database",
+    detail: "Real transaction records, indexes, Prisma schema"
+  },
+  {
+    name: "FastAPI AI",
+    type: "AI Service",
+    detail: "TF-IDF + Linear SVM category prediction"
+  },
+  {
+    name: "Prometheus + Grafana",
+    type: "Monitoring",
+    detail: "Metrics, dashboards, service visibility"
+  },
+  {
+    name: "Nginx + Docker",
+    type: "Infrastructure",
+    detail: "HTTPS reverse proxy and local production-like stack"
+  }
+];
+
+const demoSnapshots = [
+  {
+    label: "Dashboard",
+    title: "Revenue and transactions",
+    detail: "KPI overview, trend chart, category mix, top products"
+  },
+  {
+    label: "API",
+    title: "Protected admin flows",
+    detail: "JWT auth, RBAC routes, audit logs, import/export"
+  },
+  {
+    label: "AI",
+    title: "Detection workspace",
+    detail: "Category prediction, duplicate candidates, price anomalies"
+  },
+  {
+    label: "Monitoring",
+    title: "Production-like visibility",
+    detail: "Prometheus metrics, Grafana panels, health checks"
+  }
 ];
 
 const proof = [
@@ -179,6 +224,22 @@ const proof = [
         </article>
       </section>
 
+      <section class="snapshots" id="preview" aria-labelledby="snapshot-title">
+        <div class="section-heading">
+          <p class="section-kicker">Preview</p>
+          <h2 id="snapshot-title">What the main project feels like in use.</h2>
+        </div>
+        <div class="snapshot-grid">
+          {demoSnapshots.map((snapshot) => (
+            <article>
+              <span>{snapshot.label}</span>
+              <h3>{snapshot.title}</h3>
+              <p>{snapshot.detail}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section class="tech-stack-wall" aria-labelledby="case-stack">
         <div class="section-heading">
           <p class="section-kicker">Stack</p>
@@ -191,15 +252,15 @@ const proof = [
 
       <section class="architecture" id="architecture" aria-labelledby="architecture-title">
         <div class="section-heading">
-          <p class="section-kicker">Architecture</p>
-          <h2 id="architecture-title">Local production-style service flow.</h2>
+          <p class="section-kicker">System Architecture</p>
+          <h2 id="architecture-title">How the SalesOps AI stack moves data.</h2>
         </div>
         <div class="architecture-flow case-flow" aria-label="SalesOps AI service architecture">
-          {architecture.map(([name, detail], index) => (
+          {architectureSteps.map((step, index) => (
             <article class="architecture-node" style={`--step: ${index}`}>
-              <span>{index + 1}</span>
-              <h3>{name}</h3>
-              <p>{detail}</p>
+              <span>{step.type}</span>
+              <h3>{step.name}</h3>
+              <p>{step.detail}</p>
             </article>
           ))}
         </div>
