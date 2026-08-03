@@ -1,0 +1,121 @@
+---
+import {
+  Activity,
+  HandCoins,
+  ReceiptText,
+  ShieldCheck,
+  Webhook
+} from "@lucide/astro";
+import {
+  siAstro,
+  siCss,
+  siDocker,
+  siExpress,
+  siFastapi,
+  siFirebase,
+  siGit,
+  siGithub,
+  siGithubactions,
+  siGooglecloud,
+  siHtml5,
+  siJavascript,
+  siLaravel,
+  siLinux,
+  siMongodb,
+  siMysql,
+  siNestjs,
+  siNextdotjs,
+  siNginx,
+  siNodedotjs,
+  siPhp,
+  siPostgresql,
+  siPostman,
+  siPrisma,
+  siPython,
+  siReact,
+  siRedis,
+  siSupabase,
+  siTailwindcss,
+  siTypescript,
+  siVercel,
+  siVite,
+  siXendit,
+  type SimpleIcon
+} from "simple-icons";
+
+interface Props {
+  label: string;
+}
+
+const { label } = Astro.props;
+
+const brandIcons: Record<string, SimpleIcon> = {
+  Git: siGit,
+  GitHub: siGithub,
+  "GitHub Actions": siGithubactions,
+  Docker: siDocker,
+  Linux: siLinux,
+  "Google Cloud": siGooglecloud,
+  Vercel: siVercel,
+  Nginx: siNginx,
+  Postman: siPostman,
+  "Node.js": siNodedotjs,
+  Express: siExpress,
+  NestJS: siNestjs,
+  TypeScript: siTypescript,
+  JavaScript: siJavascript,
+  Python: siPython,
+  FastAPI: siFastapi,
+  PHP: siPhp,
+  Laravel: siLaravel,
+  PostgreSQL: siPostgresql,
+  MySQL: siMysql,
+  MongoDB: siMongodb,
+  Redis: siRedis,
+  Prisma: siPrisma,
+  Supabase: siSupabase,
+  Firebase: siFirebase,
+  HTML5: siHtml5,
+  CSS3: siCss,
+  React: siReact,
+  "Next.js": siNextdotjs,
+  "Tailwind CSS": siTailwindcss,
+  Vite: siVite,
+  Astro: siAstro,
+  Xendit: siXendit
+};
+
+const functionalIcons = {
+  Webhooks: Webhook,
+  "Escrow Flow": HandCoins,
+  "Transaction Logs": ReceiptText,
+  Monitoring: Activity,
+  Security: ShieldCheck
+};
+
+const brandIcon = brandIcons[label];
+const FunctionalIcon = functionalIcons[label as keyof typeof functionalIcons];
+const slug = label.toLowerCase().replaceAll(" ", "-").replaceAll(".", "");
+---
+
+<span class="stack-badge" data-stack={slug}>
+  {
+    brandIcon ? (
+      <svg
+        class="stack-badge-icon stack-badge-brand-icon"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path d={brandIcon.path}></path>
+      </svg>
+    ) : FunctionalIcon ? (
+      <FunctionalIcon
+        class="stack-badge-icon"
+        size={15}
+        stroke-width={2.2}
+        aria-hidden="true"
+      />
+    ) : null
+  }
+  {label}
+</span>

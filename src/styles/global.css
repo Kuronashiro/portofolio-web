@@ -1158,29 +1158,6 @@ time,
   flex: 0 0 auto;
 }
 
-.stack-legend {
-  align-items: center;
-  color: var(--muted);
-  display: flex;
-  font-size: 0.82rem;
-  font-weight: 850;
-  gap: 8px;
-  justify-content: center;
-  margin-top: 18px;
-}
-
-.stack-legend span {
-  background: var(--water);
-  border-radius: 50%;
-  box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.16);
-  height: 7px;
-  width: 7px;
-}
-
-.stack-legend p {
-  margin: 0;
-}
-
 .stack-badges {
   display: flex;
   flex-wrap: wrap;
@@ -1208,29 +1185,23 @@ time,
     transform 160ms ease;
 }
 
+.stack-badge-icon {
+  color: currentColor;
+  flex: 0 0 auto;
+  height: 15px;
+  opacity: 0.82;
+  width: 15px;
+}
+
+.stack-badge-brand-icon {
+  fill: currentColor;
+}
+
 .stack-badges span:hover {
   background: #30363d;
   border-color: var(--water);
   box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.18);
   transform: translateY(-2px);
-}
-
-.stack-badges span.is-featured {
-  border-color: rgba(88, 166, 255, 0.66);
-}
-
-.stack-badges span.is-featured::before {
-  background: var(--water);
-  border-radius: 50%;
-  box-shadow: 0 0 0 2px rgba(88, 166, 255, 0.12);
-  content: "";
-  flex: 0 0 auto;
-  height: 6px;
-  width: 6px;
-}
-
-:root[data-theme="dark"] .stack-legend {
-  color: #9da7b3;
 }
 
 .stack-badges.wide {

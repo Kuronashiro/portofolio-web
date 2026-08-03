@@ -19,6 +19,7 @@ import {
 import MusicPlayer from "../components/MusicPlayer.astro";
 import SeoHead from "../components/SeoHead.astro";
 import SiteHeader from "../components/SiteHeader.astro";
+import StackBadge from "../components/StackBadge.astro";
 import ThemeInit from "../components/ThemeInit.astro";
 import VercelInsights from "../components/VercelInsights.astro";
 
@@ -212,20 +213,6 @@ const techStackGroups = [
     items: ["Xendit", "Webhooks", "Escrow Flow", "Transaction Logs", "Monitoring", "Security"]
   }
 ];
-
-const featuredStack = new Set([
-  "GitHub Actions",
-  "Docker",
-  "Nginx",
-  "NestJS",
-  "TypeScript",
-  "Python",
-  "FastAPI",
-  "PostgreSQL",
-  "Prisma",
-  "Next.js",
-  "Monitoring"
-]);
 
 const experiences = [
   {
@@ -747,10 +734,6 @@ const softSkills = [
         <div class="section-heading">
           <p class="section-kicker">Tech Stack</p>
           <h2 id="stack-title">A GitHub-style wall of tools I work with.</h2>
-          <div class="stack-legend">
-            <span aria-hidden="true"></span>
-            <p>Used in SalesOps AI</p>
-          </div>
         </div>
         <div class="stack-groups">
           {techStackGroups.map((group) => {
@@ -762,18 +745,7 @@ const softSkills = [
                   <span>{group.title}</span>
                 </h3>
                 <div class="stack-badges">
-                  {group.items.map((item) => {
-                    const isFeatured = featuredStack.has(item);
-                    return (
-                      <span
-                        class:list={{ "is-featured": isFeatured }}
-                        data-stack={item.toLowerCase().replaceAll(" ", "-").replaceAll(".", "")}
-                        title={isFeatured ? "Used in the SalesOps AI featured case study" : undefined}
-                      >
-                        {item}
-                      </span>
-                    );
-                  })}
+                  {group.items.map((item) => <StackBadge label={item} />)}
                 </div>
               </article>
             );
