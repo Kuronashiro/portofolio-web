@@ -13,7 +13,8 @@ import {
   MessageCircle,
   PanelsTopLeft,
   ServerCog,
-  ShieldCheck
+  ShieldCheck,
+  Store
 } from "@lucide/astro";
 import MusicPlayer from "../components/MusicPlayer.astro";
 import SeoHead from "../components/SeoHead.astro";
@@ -23,15 +24,12 @@ import VercelInsights from "../components/VercelInsights.astro";
 
 const contact = {
   email: "Hamrizqyt@gmail.com",
-  whatsappLabel: "wa.me/6281547588632",
   whatsapp: "https://wa.me/6281547588632",
-  linkedinLabel: "linkedin.com/in/muhammad-irham-rizq",
   linkedin: "https://www.linkedin.com/in/muhammad-irham-rizq/",
   instagram: "https://www.instagram.com/irhamrzq",
-  githubLabel: "github.com/Kuronashiro",
   github: "https://github.com/Kuronashiro",
-  gitlabLabel: "gitlab.com/kuronashiro",
   gitlab: "https://gitlab.com/kuronashiro",
+  facebook: "https://web.facebook.com/irhamrizq.kuronashirohobby",
   cv: "/files/cv-muhammad-irham-rizq-2025.pdf"
 };
 
@@ -58,7 +56,7 @@ const profileSchema = {
       name: "Bina Nusantara University",
       sameAs: "https://binus.ac.id/"
     },
-    sameAs: [contact.linkedin, contact.github, contact.gitlab, contact.instagram],
+    sameAs: [contact.linkedin, contact.github, contact.gitlab, contact.instagram, contact.facebook],
     knowsAbout: [
       "Backend engineering",
       "DevOps",
@@ -567,33 +565,16 @@ const softSkills = [
           <div class="role-row" aria-label="Portfolio focus areas">
             {roles.map((role) => <span data-short={role.short}>{role.label}</span>)}
           </div>
-          <div class="contact-line" aria-label="Contact links">
-            <a href={contact.whatsapp}>{contact.whatsappLabel}</a>
-            <a href={`mailto:${contact.email}`}>{contact.email}</a>
-            <a href={contact.linkedin}>{contact.linkedinLabel}</a>
-            <a href={contact.github}>{contact.githubLabel}</a>
-            <a href={contact.gitlab}>{contact.gitlabLabel}</a>
-          </div>
-          <div class="mobile-socials" aria-label="Quick contact links">
-            <a href={`mailto:${contact.email}`} aria-label="Email" title="Email">
-              <Mail size={20} aria-hidden="true" />
-            </a>
-            <a href={contact.linkedin} aria-label="LinkedIn" title="LinkedIn">
-              <BriefcaseBusiness size={20} aria-hidden="true" />
-            </a>
-            <a href={contact.github} aria-label="GitHub" title="GitHub">
-              <Code size={20} aria-hidden="true" />
-            </a>
-            <a href={contact.whatsapp} aria-label="WhatsApp" title="WhatsApp">
-              <MessageCircle size={20} aria-hidden="true" />
-            </a>
-          </div>
           <div class="hero-actions">
             <a class="button primary" href="#projects">View Projects</a>
             <a class="button secondary" href={contact.cv}>
               <FileText class="button-icon" size={18} aria-hidden="true" />
               <span class="cv-label-desktop">Open CV</span>
               <span class="cv-label-mobile">CV</span>
+            </a>
+            <a class="button secondary" href="#contact">
+              <Mail class="button-icon" size={18} aria-hidden="true" />
+              <span>Reach Me</span>
             </a>
           </div>
         </div>
@@ -957,6 +938,10 @@ const softSkills = [
           <a class="button secondary" href={contact.gitlab}>
             <GitFork class="contact-button-icon" size={18} aria-hidden="true" />
             <span>GitLab</span>
+          </a>
+          <a class="button secondary" href={contact.facebook}>
+            <Store class="contact-button-icon" size={18} aria-hidden="true" />
+            <span>Facebook</span>
           </a>
         </div>
       </section>

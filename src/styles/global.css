@@ -436,7 +436,6 @@ h3 {
 }
 
 .hero-copy-mobile,
-.mobile-socials,
 .cv-label-mobile,
 .button-icon {
   display: none;
@@ -453,8 +452,7 @@ h3 {
 .tag-row,
 .skill-cloud,
 .contact-actions,
-.hero-actions,
-.contact-line {
+.hero-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
@@ -463,35 +461,6 @@ h3 {
 .role-row {
   justify-content: center;
   margin: 28px 0;
-}
-
-.contact-line {
-  color: rgba(255, 253, 244, 0.82);
-  font-size: 0.95rem;
-  font-weight: 800;
-  justify-content: center;
-  margin-bottom: 26px;
-}
-
-.contact-line a {
-  border-bottom: 1px solid rgba(255, 253, 244, 0.32);
-}
-
-.mobile-socials {
-  align-items: center;
-  justify-content: center;
-}
-
-.mobile-socials a {
-  align-items: center;
-  background: rgba(255, 253, 244, 0.08);
-  border: 1px solid rgba(255, 253, 244, 0.34);
-  border-radius: 50%;
-  color: #fffdf4;
-  display: inline-flex;
-  height: 42px;
-  justify-content: center;
-  width: 42px;
 }
 
 .role-row span,
@@ -2303,7 +2272,6 @@ time,
   }
 
   .hero-copy-desktop,
-  .contact-line,
   .cv-label-desktop {
     display: none;
   }
@@ -2342,24 +2310,20 @@ time,
     margin: 0 7px;
   }
 
-  .mobile-socials {
-    display: flex;
-    gap: 10px;
-    margin: 0 auto 20px;
-  }
-
   .hero .hero-actions {
     display: grid;
     gap: 10px;
-    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-columns: minmax(0, 1fr) auto auto;
     margin: 0 auto;
-    max-width: 340px;
+    max-width: 390px;
     width: 100%;
   }
 
   .hero .hero-actions .button {
+    font-size: 0.8rem;
     min-width: 0;
-    padding: 10px 16px;
+    padding: 10px 11px;
+    white-space: nowrap;
     width: auto;
   }
 

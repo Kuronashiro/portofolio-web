@@ -41,10 +41,9 @@ const entries = [
   ["Payment", "Pembayaran", "支付"],
   ["Reliability", "Keandalan", "可靠性"],
   ["Portfolio focus areas", "Fokus portfolio", "作品集重点领域"],
-  ["Contact links", "Tautan kontak", "联系方式"],
-  ["Quick contact links", "Tautan kontak cepat", "快捷联系方式"],
   ["View Projects", "Lihat Proyek", "查看项目"],
   ["Open CV", "Buka CV", "打开简历"],
+  ["Reach Me", "Hubungi Saya", "联系我"],
 
   ["About Me", "Tentang Saya", "关于我"],
   ["Building reliable systems from backend to deployment.", "Membangun sistem andal dari backend hingga deployment.", "从后端到部署，构建可靠系统。"],
