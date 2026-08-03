@@ -1951,8 +1951,7 @@ time,
 
 .info-grid article.languages-panel {
   grid-column: 1 / -1;
-  justify-self: center;
-  max-width: 520px;
+  justify-self: stretch;
   width: 100%;
 }
 
