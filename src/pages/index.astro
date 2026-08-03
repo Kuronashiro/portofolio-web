@@ -473,34 +473,6 @@ const certificates = [
   }
 ];
 
-const hardSkills = [
-  "Kotlin",
-  "Figma",
-  "HTML",
-  "CSS",
-  "JavaScript",
-  "C",
-  "C++",
-  "MySQL",
-  "Python",
-  "Java",
-  "NestJS",
-  "Next.js",
-  "Microsoft Office"
-];
-
-const softSkills = [
-  "Team leadership",
-  "Team management",
-  "Project management",
-  "Event organizing",
-  "Teamwork",
-  "Creativity",
-  "Public speaking",
-  "Communication",
-  "Problem solving",
-  "Analytical thinking"
-];
 ---
 
 <!doctype html>
@@ -823,7 +795,7 @@ const softSkills = [
       <section class="skills-section section-grid reveal" id="skills" aria-labelledby="skills-title">
         <div>
           <p class="section-kicker">Additional Information</p>
-          <h2 id="skills-title">Certificates, skills, and languages.</h2>
+          <h2 id="skills-title">Certificates and languages.</h2>
         </div>
         <div class="info-grid">
           <article class="certificates-panel">
@@ -863,19 +835,7 @@ const softSkills = [
               }
             </div>
           </article>
-          <article>
-            <h3>Hard Skills</h3>
-            <div class="skill-cloud">
-              {hardSkills.map((skill) => <span>{skill}</span>)}
-            </div>
-          </article>
-          <article>
-            <h3>Soft Skills</h3>
-            <div class="skill-cloud">
-              {softSkills.map((skill) => <span>{skill}</span>)}
-            </div>
-          </article>
-          <article>
+          <article class="languages-panel">
             <h3>Languages</h3>
             <p><strong>Indonesian:</strong> Full professional proficiency</p>
             <p><strong>English:</strong> Limited working proficiency</p>

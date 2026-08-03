@@ -234,11 +234,9 @@ const entries = [
   ["Simple AI chatbot using Python and Visual Studio Code.", "Chatbot AI sederhana menggunakan Python dan Visual Studio Code.", "使用 Python 和 Visual Studio Code 构建的简单 AI 聊天机器人。"],
 
   ["Additional Information", "Informasi Tambahan", "其他信息"],
-  ["Certificates, skills, and languages.", "Sertifikat, keahlian, dan bahasa.", "证书、技能与语言能力。"],
+  ["Certificates and languages.", "Sertifikat dan bahasa.", "证书与语言能力。"],
   ["E-Certificates / Awards", "E-Certificate / Penghargaan", "电子证书 / 奖项"],
   ["Certificates / Awards", "Sertifikat / Penghargaan", "证书 / 奖项"],
-  ["Hard Skills", "Hard Skill", "硬技能"],
-  ["Soft Skills", "Soft Skill", "软技能"],
   ["Languages", "Bahasa", "语言能力"],
   ["Introduction to Python by Sololearn 2024", "Pengantar Python oleh Sololearn 2024", "Sololearn Python 入门 2024"],
   ["Fundamental Front-End Web Development by Coding Studio 2024", "Dasar Front-End Web Development oleh Coding Studio 2024", "Coding Studio 前端网页开发基础 2024"],
