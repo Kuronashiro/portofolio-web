@@ -1817,6 +1817,7 @@ time,
   background: linear-gradient(135deg, var(--mint), var(--violet-soft));
   border-bottom: 2px solid rgba(24, 63, 43, 0.1);
   border-top: 2px solid rgba(24, 63, 43, 0.1);
+  display: block;
   max-width: none;
 }
 
@@ -1824,6 +1825,19 @@ time,
   margin-left: auto;
   margin-right: auto;
   max-width: 1180px;
+}
+
+.skills-section-header {
+  text-align: center;
+}
+
+.skills-section-header h2 {
+  margin-bottom: 0;
+}
+
+.skills-section .info-grid {
+  margin-top: clamp(34px, 4vw, 52px);
+  max-width: 960px;
 }
 
 .info-grid {
@@ -1851,6 +1865,7 @@ time,
 
 .certificates-panel > h3 {
   margin-bottom: 16px;
+  text-align: center;
 }
 
 .certificate-grid {
