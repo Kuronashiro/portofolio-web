@@ -15,7 +15,7 @@ const entries = [
   ["Proof", "Bukti", "验证"],
   ["Experience", "Pengalaman", "经历"],
   ["Projects", "Proyek", "项目"],
-  ["Skills", "Keahlian", "技能"],
+  ["Certificates", "Sertifikat", "证书"],
   ["Contact", "Kontak", "联系"],
   ["Primary navigation", "Navigasi utama", "主导航"],
   ["Dark Mode", "Mode Gelap", "深色模式"],
