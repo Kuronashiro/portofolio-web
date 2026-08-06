@@ -43,7 +43,7 @@ const entries = [
   ["Portfolio focus areas", "Fokus portfolio", "作品集重点领域"],
   ["View Projects", "Lihat Proyek", "查看项目"],
   ["Open CV", "Buka CV", "打开简历"],
-  ["Reach Me", "Hubungi Saya", "联系我"],
+  ["Contact Me", "Hubungi Saya", "联系我"],
 
   ["About Me", "Tentang Saya", "关于我"],
   ["Building reliable systems from backend to deployment.", "Membangun sistem andal dari backend hingga deployment.", "从后端到部署，构建可靠系统。"],
@@ -263,7 +263,11 @@ const entries = [
   ["Full professional proficiency", "Kemahiran profesional penuh", "专业工作熟练度"],
   ["Limited working proficiency", "Kemahiran kerja terbatas", "有限工作熟练度"],
 
-  ["Let us build something useful and lively.", "Mari membangun sesuatu yang berguna dan hidup.", "让我们一起打造实用而有活力的作品。"],
+  [
+    "Have a project or opportunity in mind? Let's talk.",
+    "Punya proyek atau peluang untuk didiskusikan? Mari berbincang.",
+    "有项目或合作机会？欢迎与我交流。"
+  ],
   ["Backend & DevOps Developer | Built with Astro", "Developer Backend & DevOps | Dibangun dengan Astro", "后端与 DevOps 开发者 | 使用 Astro 构建"],
 
   ["Kuronashiro Hobby Website | Internship Project", "Kuronashiro Hobby Website | Proyek Magang", "Kuronashiro Hobby Website | 实习项目"],

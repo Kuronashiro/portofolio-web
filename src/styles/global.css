@@ -642,11 +642,15 @@ h3 {
 }
 
 .stat-item {
+  align-items: center;
   border-right: 1px solid rgba(255, 253, 244, 0.16);
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   min-height: 156px;
   padding: 34px clamp(18px, 4vw, 48px);
   position: relative;
+  text-align: center;
   transition: background 180ms ease;
 }
 
@@ -662,7 +666,7 @@ h3 {
 .stat-item strong {
   color: var(--violet-soft);
   display: block;
-  font-size: clamp(2rem, 4vw, 3.6rem);
+  font-size: clamp(1.9rem, 3vw, 2.85rem);
   line-height: 1;
   margin-bottom: 10px;
 }
@@ -670,7 +674,10 @@ h3 {
 .stat-item span {
   color: rgba(255, 253, 244, 0.72);
   display: block;
+  font-size: 0.88rem;
   font-weight: 800;
+  line-height: 1.45;
+  margin-inline: auto;
   max-width: 24ch;
 }
 
@@ -1828,15 +1835,25 @@ time,
 }
 
 .skills-section-header {
+  display: grid;
+  gap: 10px;
+  justify-items: center;
   text-align: center;
 }
 
+.skills-section-header .section-kicker,
 .skills-section-header h2 {
-  margin-bottom: 0;
+  margin: 0;
+}
+
+.skills-section-header h3 {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin: 10px 0 0;
 }
 
 .skills-section .info-grid {
-  margin-top: clamp(34px, 4vw, 52px);
+  margin-top: clamp(20px, 2.5vw, 30px);
   max-width: 960px;
 }
 
@@ -2018,7 +2035,7 @@ time,
 
 .contact-actions {
   justify-content: center;
-  margin-top: 26px;
+  margin-top: 36px;
 }
 
 .contact-actions .button {
@@ -2524,11 +2541,11 @@ time,
   }
 
   .stat-item strong {
-    font-size: 2.35rem;
+    font-size: 2rem;
   }
 
   .stat-item span {
-    font-size: 0.9rem;
+    font-size: 0.84rem;
     margin-inline: auto;
     max-width: 30ch;
   }
